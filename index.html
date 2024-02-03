@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+      <title> Small Web Cartography </title>
+      <meta charset="utf-8">
+      <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <link rel="apple-touch-icon" sizes="180x180"  href="favicon.ico"> 
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico"> 
+      <link rel="icon" type="image/png" sizes="16x16"  href="favicon.ico"> 
+
+      <!-- Facebook Open Graph tags -->
+      <meta property="og:url" content="https://sites.joodaloop.com" />
+      <meta property="og:title" content="Sites I Want To Make" />
+      <meta property="og:description" content="Plans for future HTML creations." />
+      <meta property="og:image" content="https://sites.joodaloop.com/media/card.jpeg" />
+
+
+      <!-- Twitter Card (large image card) tags -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:creator" content="@joodaloop">
+      <meta name="twitter:title" content="Sites I Want To Make">
+      <meta name="twitter:description" content="Plans for future HTML creations." />
+      <meta name="twitter:image" content="https://sites.joodaloop.com/media/card.jpeg" />
+
+      <script src="panzoom.min.js"></script>
+
+    <style>
+
+      @font-face {
+        font-family: 'GeneralSans';
+        font-style: normal;
+        src: url('./GeneralSans.ttf');
+        font-display: swap;
+        font-weight: 1 999;  
+      }
+
+      :root{
+        --title-size: 18px;
+      }
+
+      h1{
+        position: fixed;
+        width: fit-content;
+        top: 0em;
+        left: 0em;
+        font-size: 14px;
+        font-weight: 900;
+        background: #d9d6cd;
+        z-index: 2;
+        padding: 0.5em 1em 1em 1em;
+        margin: 0px;
+      }
+
+      body{
+        margin: 0px;
+        max-height: 100vh;
+        max-width: 100vw;
+        overflow: hidden;
+        font-family: GeneralSans;
+        color: #504d47;
+      }
+
+      main{
+        width: 100vw;
+        min-height: 100vh;
+        background: #d9d6cd;
+        color: inherit;
+      }
+
+      button{
+        background: #e9e6dd;
+        border: none;
+        height: 1.6em;
+        width: 1.6em;
+        font-weight: 500;
+      }
+
+      .map{
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        color: inherit;
+      }
+
+      .site{
+        width: 16em;
+        position: absolute;
+/*        border: solid 1px black;*/
+        padding: 0.5em;
+        border-radius: 4px;
+        user-select: none;
+/*        transition: background 0.3s ease;*/
+      }
+
+      .site:hover{
+/*        background: #e9e6dd;*/
+      }
+
+      .site a{
+        text-decoration: none;
+        font-weight: 400;
+      }
+
+      .site-title{
+        display: inline-block;
+        margin-right: 0.25em;
+        font-weight: 600;
+        opacity: 0.8;
+        font-size: 18px;
+      }
+
+      .site-url{
+        font-size: 0.8em;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        padding-left: 0em;
+        margin-top: 0.1em;
+        font-family: monospace;
+        opacity: 0.6;
+      }
+
+      .site-description{
+        font-size: 0.8em;
+        margin-top: 0.75em;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        padding-left: 0em;
+        letter-spacing: 0.25px;
+        line-height: 1.25em;
+      }
+
+      .site:hover .site-description{
+        opacity: 1;
+      }
+
+      section{
+/*        background: #eeeeee55;*/
+        width: 600px;
+        height: 600px;
+        border-radius: 100%;
+        position: absolute;
+      }
+
+      .section-title{
+        font-size: var(--title-size);
+        position: absolute;
+        top: calc(50% - 1em);
+        width: 100%;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .info{
+        position: fixed;
+        top: 0.5em;
+        right: 0.5em;
+        text-align: right;
+        width: 18em;
+      }
+
+      .info-text{
+        padding: 1em;
+        font-size: 13px;
+        text-align: left;
+        margin-top: 0.5em;
+        display: none;
+        font-weight: 500;
+        color: #504d47;
+        background: #e9e6dd;
+      }
+
+      .info-text p:first-child{
+        margin-top: 0px;
+      }
+
+      .info-text p:last-child{
+        margin-bottom: 0px;
+      }
+
+      .info-text a{
+        color: inherit;
+      }
+      
+    </style>
+
+    <h1> Map of my Internet </h1>
+
+    <main>
+      <div class=map>
+
+        <section style="top: 200px; left: -1800px">
+          <div class=section-title>STEMlords</div>
+
+          <div class=site style="top: 10%; left: 20%">
+            <a href="https://evanchen.cc/" style="color: inherit">
+              <div class=site-title> Evan Chen </div>
+            </a>
+              <div class=site-url> evanchen.cc </div>
+              <div class=site-description> Author of Infinite Napkin.</div>
+          </div>
+
+          <div class=site style="top: 20%; left: 80%">
+            <a href="https://joodaloop" style="color: inherit">
+              <div class=site-title> Locklin on science </div>
+            </a>
+              <div class=site-url> paco.me </div>
+              <div class=site-description> </div>
+          </div>
+
+        </section>
+
+         <section style="top: -350px; left: -1700px">
+          <div class=section-title>Academics</div>
+
+          <div class=site style="top: 10%; left: 20%">
+            <a href="https://joodaloop" style="color: inherit">
+              <div class=site-title> Steve Hsu </div>
+            </a>
+              <div class=site-url> paco.me </div>
+              <div class=site-description> Genomics, statistics, physics</div>
+          </div>
+
+          <div class=site style="top: 20%; left: 55%">
+            <a href="https://bactra.org/" style="color: inherit">
+              <div class=site-title> Cosma Shalizi </div>
+            </a>
+              <div class=site-url> bactra.org </div>
+              <div class=site-description> Genomics, statistics, physics</div>
+          </div>
+
+          <div class=site style="top: 60%; left: 80%">
+            <a href="https://simondedeo.com/" style="color: inherit">
+              <div class=site-title> Simon Dedeo </div>
+            </a>
+              <div class=site-url> simondedeo.com </div>
+              <div class=site-description> Professor at CMU, I think. Writer of helpful thigs like <a href="http://santafe.edu/~simon/it.pdf">Information Theory</a> for Intelligent People.</div>
+          </div>
+
+          
+
+        </section>
+
+        <section style="top: -800px; left: -1200px">
+          <div class=section-title>Internet Culture</div>
+
+          <div class=site style="top: 80%; left: 60%">
+            <a href="https://aaronzlewis.com/" style="color: inherit">
+              <div class=site-title> Aaron Z. Lewis </div>
+            </a>
+              <div class=site-url> aaronzlewis.com </div>
+              <div class=site-description> Smart guy. </div>
+          </div>
+        </section>
+
+        <section style="top: -100px; left: -1100px">
+          <div class=section-title>Ye Olde Blogosphere</div>
+
+          <div class=site style="top: 30%; left: 80%">
+            <a href="https://www.ribbonfarm.com/" style="color: inherit">
+              <div class=site-title> Venkatesh Rao</div>
+            </a>
+              <div class=site-url> ribbonfarm.com </div>
+              <div class=site-description> Lowkey a genius, if you ask me. </div>
+          </div>
+
+          <div class=site style="top: 90%; left: 80%">
+            <a href="http://www.aaronsw.com" style="color: inherit">
+              <div class=site-title> Aaron Swartz</div>
+            </a>
+              <div class=site-url> www.aaronsw.com</div>
+              <div class=site-description> RIP. </div>
+          </div>
+
+        </section>
+
+        <section style="top: 600px; left: -1400px">
+          <div class=section-title>Money Stuff</div>
+
+          <div class=site style="top: 40%; left: 90%">
+            <a href="https://joodaloop" style="color: inherit">
+              <div class=site-title> The Diff </div>
+            </a>
+              <div class=site-url> thediff.co </div>
+              <div class=site-description> Inflections in tech and finance. </div>
+          </div>
+        </section>
+
+        <section style="top: 0px; left: 0px">
+          <div class=section-title>"Do Things" people</div>
+
+          <div class=site style="top: 90%; left: 40%">
+            <a href="https://simonsarris.com/" style="color: inherit">
+              <div class=site-title> Simon Sarris </div>
+            </a>
+              <div class=site-url> simonsarris.com </div>
+              <div class=site-description> Beautiful things appreciator/creator, neo-trad propoganda.</div>
+          </div>
+        </section>
+
+        <section style="top: -450px; left: -500px">
+          <div class=section-title>Feral Free Agents</div>
+
+          <div class=site style="top: 20%; left: 60%">
+            <a href="https://tomcritchlow.com/" style="color: inherit">
+              <div class=site-title> Tom Critchlow </div>
+            </a>
+              <div class=site-url> tomcritchlow.com </div>
+              <div class=site-description> Indie consultant. Bricolage enthusiast. </div>
+          </div>
+
+          <div class=site style="top: 20%; left: 0%">
+            <a href="https://tobyshorin.com/" style="color: inherit">
+              <div class=site-title> Toby Shorin </div>
+            </a>
+              <div class=site-url> tobyshorin.com </div>
+              <div class=site-description> Founder of Other Internet. Now a psychology nerd.</div>
+          </div>
+
+        </section>
+
+        <section style="top: 750px; left: 200px">
+          <div class=section-title>Postrats</div>
+
+          <div class=site style="top: 10%; left: 20%">
+            <a href="https://tis.so" style="color: inherit">
+              <div class=site-title> The Inexact Sciences </div>
+            </a>
+              <div class=site-url> tis.so </div>
+              <div class=site-description> Smart guy. </div>
+          </div>
+
+          
+        </section>
+
+        <section style="top: 100px; left: 750px">
+          <div class=section-title>Youngins'</div>
+
+          <div class=site style="top: 10%; left: 20%">
+            <a href="https://onthespectrumontheguestlist.substack.com/" style="color: inherit">
+              <div class=site-title> JOODALOOP </div>
+            </a>
+              <div class=site-url> joodaloop.com </div>
+              <div class=site-description> Personal site designer, internet enjoyer, economics sometimes.</div>
+          </div>
+
+          <div class=site style="top: 80%; left: 0%">
+            <a href="https://jane.flowers" style="color: inherit">
+              <div class=site-title> Jane Flowers </div>
+            </a>
+              <div class=site-url> jane.flowers </div>
+              <div class=site-description> Personal site designer, internet enjoyer, economics sometimes.</div>
+          </div>
+
+          
+        </section>
+
+        <section style="top: -800px; left: 100px">
+          <div class=section-title>Literacy Enjoyers</div>
+
+          <div class=site style="top: 60%; left: 80%">
+            <a href="https://arcana.computer" style="color: inherit">
+              <div class=site-title> Justin Duke </div>
+            </a>
+              <div class=site-url> arcana.computer </div>
+              <div class=site-description> Mailman at Buttondown, blogging enjoyer.</div>
+          </div>
+
+          <div class=site style="top: 80%; left: 10%">
+            <a href="https://nadia.xyz" style="color: inherit">
+              <div class=site-title> Nadia Eghbal </div>
+            </a>
+              <div class=site-url> nadia.xyz </div>
+              <div class=site-description> Internet thinker.</div>
+          </div>
+
+          <div class=site style="top: 60%; left: 40%">
+            <a href="https://www.robinsloan.com/" style="color: inherit">
+              <div class=site-title> Robin Sloan </div>
+            </a>
+              <div class=site-url> robinsloan.com </div>
+              <div class=site-description> Author.</div>
+          </div>
+
+          <div class=site style="top: 20%; left: 90%">
+            <a href="https://robinrendle.com/" style="color: inherit">
+              <div class=site-title> Robin Rendle </div>
+            </a>
+              <div class=site-url> robinrendle.com</div>
+              <div class=site-description> Author and designer.</div>
+          </div>
+
+          <div class=site style="top: 50%; left: 0%">
+            <a href="https://craigmod.com" style="color: inherit">
+              <div class=site-title> Craig Mod </div>
+            </a>
+              <div class=site-url> craigmod.com </div>
+              <div class=site-description> Very cool guy.</div>
+          </div>
+
+          
+        </section>
+
+        <section style="top: -1200px; left: 600px">
+
+          <div class=section-title>The Designer's Designers</div>
+
+          <div class=site style="top: 10%; left: 20%">
+            <a href="https://joodaloop" style="color: inherit">
+              <div class=site-title> Paco Coursey </div>
+            </a>
+              <div class=site-url> paco.me </div>
+              <div class=site-description> Elegant details, tasteful interactions, minimalism enjoyer.</div>
+          </div>
+
+        </section>
+
+         <section style="top: -550px; left: 700px">
+          <div class=section-title>Web gang</div>
+
+          <div class=site style="top: 70%; left: 70%">
+            <a href="https://thesephist.com" style="color: inherit">
+              <div class=site-title> Linus Lee </div>
+            </a>
+              <div class=site-url> thesephist.com </div>
+              <div class=site-description> Elegant details, tasteful interactions, minimalism enjoyer.</div>
+          </div>
+
+          <div class=site style="top: 50%; left: 5%">
+            <a href="https://maya.land" style="color: inherit">
+              <div class=site-title> Maya </div>
+            </a>
+              <div class=site-url> maya.land </div>
+              <div class=site-description> Web crank.</div>
+          </div>
+
+          <div class=site style="top: 10%; left: 70%">
+            <a href="https://www.spencerchang.me" style="color: inherit">
+              <div class=site-title> Spencer Chang </div>
+            </a>
+              <div class=site-url> spencerchang.me </div>
+              <div class=site-description> Wholesome mf.</div>
+          </div>
+
+        </section>
+
+        <section style="top: -900px; left: 1300px">
+          <div class=section-title>Software Enjoyers</div>
+
+          <div class=site style="top: 30%; left: 60%">
+            <a href="https://tyler.cafe/" style="color: inherit">
+              <div class=site-title> Tyler Angert </div>
+            </a>
+              <div class=site-url> tyler.cafe </div>
+              <div class=site-description> Guy who softwares.</div>
+          </div>
+
+          <div class=site style="top: 80%; left: 20%">
+            <a href="https://geoffreylitt.com" style="color: inherit">
+              <div class=site-title> Geoffrey Litt </div>
+            </a>
+              <div class=site-url> geoffreylitt.com </div>
+              <div class=site-description> Guy who softwares.</div>
+          </div>
+
+          <div class=site style="top: 20%; left: 0%">
+            <a href="https://worrydream.com" style="color: inherit">
+              <div class=site-title> Bret Victor </div>
+            </a>
+              <div class=site-url> worrydream.com </div>
+              <div class=site-description> Legendary dynamic media researcher.</div>
+          </div>
+
+          <div class=site style="top: 60%; left: 50%">
+            <a href="https://omar.website" style="color: inherit">
+              <div class=site-title> Omar Rizwan </div>
+            </a>
+              <div class=site-url> omar.website </div>
+              <div class=site-description> Computer appreciator and explorer.</div>
+          </div>
+
+          <div class=site style="top: 90%; left: 0%">
+            <a href="https://www.todepond.com/" style="color: inherit">
+              <div class=site-title> Todepond </div>
+            </a>
+              <div class=site-url> todepond.com </div>
+              <div class=site-description> Make slightly-surreal videos about their coding experiments.</div>
+          </div>
+
+          <div class=site style="top: 60%; left: 10%">
+            <a href="https://doriantaylor.com" style="color: inherit">
+              <div class=site-title> Dorian Taylor </div>
+            </a>
+              <div class=site-url> doriantaylor.com</div>
+              <div class=site-description> Hmmm. </div>
+          </div>
+
+        </section>
+
+        <section style="top: -1300px; left: -100px">
+          <div class=section-title>Collectives</div>
+
+          <div class=site style="top: 10%; left: 20%">
+            <a href="https://www.inkandswitch.com/" style="color: inherit">
+              <div class=site-title> Ink & Switch </div>
+            </a>
+              <div class=site-url> inkandswitch.com </div>
+              <div class=site-description> Elegant details, tasteful interactions, minimalism enjoyer.</div>
+          </div>
+
+          <div class=site style="top: 70%; left: 20%">
+            <a href="https://100r.co" style="color: inherit">
+              <div class=site-title> 100 Rabbits </div>
+            </a>
+              <div class=site-url> 100r.co </div>
+              <div class=site-description> Elegant details, tasteful interactions, minimalism enjoyer.</div>
+          </div>
+
+          <div class=site style="top: 50%; left: -10%">
+            <a href="https://goodenough.us" style="color: inherit">
+              <div class=site-title> Good Enough </div>
+            </a>
+              <div class=site-url> goodenough.us </div>
+              <div class=site-description> Elegant details, tasteful interactions, minimalism enjoyer.</div>
+          </div>
+
+        </section>
+
+
+
+        <section style="top: 500px; left: -600px">
+          <div class=section-title>Tech Bros</div>
+
+          <div class=site style="top: 50%; left: -5%">
+            <a href="https://kalzumeus.com" style="color: inherit">
+              <div class=site-title> Patrick McKenzie </div>
+            </a>
+              <div class=site-url>kalzumeus.com </div>
+              <div class=site-description> On money and systems thereof, programmer self-harm prevention. </div>
+          </div>
+
+          <div class=site style="top: 70%; left: 15">
+            <a href="https://stratchery.com" style="color: inherit">
+              <div class=site-title> Stratchery </div>
+            </a>
+              <div class=site-url>stratchery.com </div>
+              <div class=site-description> On the business, strategy, and impact of technology. </div>
+          </div>
+
+          <div class=site style="top: 70%; left: 50%">
+            <a href="https://danluu.com" style="color: inherit">
+              <div class=site-title> Dan Luu </div>
+            </a>
+              <div class=site-url>danluu.com </div>
+              <div class=site-description> He just writes and thinks pretty well tbh. </div>
+          </div>
+
+          <div class=site style="top: 100%; left: 40%">
+            <a href="https://gwern.net" style="color: #111111">
+              <div class=site-title>Gwern</div>
+            </a>
+              <div class=site-url>gwern.net </div>
+              <div class=site-description> Internet besserwisser. </div>
+          </div>
+
+          <div class=site style="top: 20%; left: 40%">
+            <a href="https://benkuhn.net" style="color: #111111">
+              <div class=site-title>Ben Kuhn</div>
+            </a>
+              <div class=site-url>benkuhn.net </div>
+              <div class=site-description> Guy. </div>
+          </div>
+        </section>
+
+
+
+        <section style="top: 1300px; left: -200px">
+          <div class=section-title>Substack club</div>
+
+          <div class=site style="top: 10%; left: 20%">
+            <a href="https://joodaloop" style="color: inherit">
+              <div class=site-title> Aaron Z. Lewis </div>
+            </a>
+              <div class=site-url> paco.me </div>
+              <div class=site-description> Smart guy. </div>
+          </div>
+        </section>
+
+        <section style="top: 1200px; left: -900px">
+          <div class=section-title>Effective Epistemics (???)</div>
+
+          <div class=site style="top: 10%; left: 20%">
+            <a href="https://commoncog.com" style="color: inherit">
+              <div class=site-title> Cedric Chin </div>
+            </a>
+              <div class=site-url> commoncog.com </div>
+              <div class=site-description> Operations, the study of expertise. </div>
+          </div>
+        </section>
+
+        <section style="top: 800px; left: 900px">
+          <div class=section-title>Slightly Insane</div>
+
+          <div class=site style="top: 10%; left: 20%">
+            <a href="https://samkriss.substack.com" style="color: inherit">
+              <div class=site-title> Numb at the Lodge </div>
+            </a>
+              <div class=site-url> samkriss.substack.com </div>
+              <div class=site-description> A writer and your enemy. </div>
+          </div>
+          
+        </section>
+
+        <section style="top: 1800px; left: -600px">
+          <div class=section-title>Lesswrong mafia</div>
+
+          <div class=site style="top: 10%; left: 20%">
+            <a href="https://joodaloop" style="color: inherit">
+              <div class=site-title> Strange Loop Canon </div>
+            </a>
+              <div class=site-url> paco.me </div>
+              <div class=site-description> Smart guy. </div>
+          </div>
+        </section>
+
+        <section style="top: 1400px; left: 700px">
+          <div class=section-title>Do drugs and/or philosophy and/or be happy</div>
+
+          <div class=site style="top: 10%; left: 20%">
+            <a href="https://joodaloop" style="color: inherit">
+              <div class=site-title> Aaron Z. Lewis </div>
+            </a>
+              <div class=site-url> paco.me </div>
+              <div class=site-description> Smart guy. </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <div class=info>
+      <button class=info-button onclick="toggleInfo()">?</button>
+      <div class="info-text">
+        <p> Someday I will make this look prettier, for now it is merely functional. </p>
+        <p> Copyright and stuff belongs to <a href="https://joodaloop.com">Judah</a>. </p>
+      </div>
+    </div>
+
+    <script>
+      var element = document.querySelector('.map')
+      let infoVisible = false
+      const root = document.documentElement;
+
+      // And pass it to panzoom
+      let pz = panzoom(element, {
+                    minZoom: 0.35, maxZoom: 1.35, 
+                    beforeWheel: function(e) {
+                      var shouldIgnore = !(e.ctrlKey || e.metaKey || e.altKey)
+                      return shouldIgnore;
+                    }
+                })
+
+      pz.smoothZoom(500, 500, 0.3)
+
+      pz.on('zoom', () => {
+        let scale = pz.getTransform().scale
+        root.style.setProperty('--title-size', (scale < 0.4 ? 1/scale : 2.5) * 12 + 'px') 
+      })
+
+      function toggleInfo(){
+          let text = document.querySelector('.info-text')
+          infoVisible ? text.style.display = "none" : text.style.display = "inline-block"
+          infoVisible = !infoVisible
+       }
+
+      document.querySelector('main').addEventListener("wheel", (e) => {
+
+          if(e.ctrlKey || e.metaKey || e.altKey){
+              return false
+          } 
+
+          // if(e.target == "main"){
+              e.preventDefault()
+          // }
+
+          let transform = pz.getTransform()
+          let scale = transform.scale
+          let x = transform.x
+          let y = transform.y
+
+          let deltaX = e.deltaX;
+          let deltaY = e.deltaY;
+
+          if(e.shiftKey) deltaX = 0
+
+          pz.moveTo(x - deltaX, y - deltaY);
+      });
+</script>
+      
+    </body></html>
