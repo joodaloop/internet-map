@@ -704,7 +704,7 @@
               <div class=site-description> Scarily impressive polymath, thoughtful designer.</div>
           </div>
 
-          <div class=site style="top: 40%; left: 130%">
+          <div class=site style="top: 30%; left: 130%">
             <a target="_blank" href="http://muratayfer.com" style="color: inherit">
               <div class=site-title> Murat Ayfer</div>
             </a>
@@ -1368,6 +1368,9 @@
                     beforeWheel: function(e) {
                       var shouldIgnore = !(e.ctrlKey || e.metaKey || e.altKey)
                       return shouldIgnore;
+                    },
+                    onTouch: function(e) {
+                      return false; // tells the library to not preventDefault.
                     }
                 })
 
