@@ -656,6 +656,14 @@
 
           <div class=section-title>The Designer's Designers</div>
 
+          <div class=site style="top: 0%; left: 50%">
+            <a target="_blank" href="https://www.carolynzhang.com" style="color: inherit">
+              <div class=site-title> kēlín carolyn zhang </div>
+            </a>
+              <div class=site-url> carolynzhang.com </div>
+              <div class=site-description> making software with a soul.</div>
+          </div>
+
           <div class=site style="top: 10%; left: 20%">
             <a target="_blank" href="https://paco.me" style="color: inherit">
               <div class=site-title> Paco Coursey </div>
@@ -680,12 +688,20 @@
               <div class=site-description> Lawyer and hobbyist programmer, wrote some <a target="_blank" href="https://practicaltypography.com/">typography</a> and <a target="_blank" href="https://beautifulracket.com/">programming</a> books.</div>
           </div>
 
-          <div class=site style="top: 40%; left: 100%">
+          <div class=site style="top: 35%; left: 100%">
             <a target="_blank" href="https://www.ekzhang.com" style="color: inherit">
               <div class=site-title> Eric Zhang </div>
             </a>
               <div class=site-url> ekzhang.com </div>
               <div class=site-description> Scarily impressive polymath, thoughtful designer.</div>
+          </div>
+
+          <div class=site style="top: 40%; left: 130%">
+            <a target="_blank" href="http://muratayfer.com" style="color: inherit">
+              <div class=site-title> Murat Ayfer</div>
+            </a>
+              <div class=site-url> muratayfer.com </div>
+              <div class=site-description> Designer, programmer, sysadmin, generative artist, etc, etc.</div>
           </div>
 
           <div class=site style="top: 30%; left: 60%">
@@ -728,6 +744,14 @@
               <div class=site-description> Digital gardening, excellent essays, interfaces and more.</div>
           </div>
 
+          <div class=site style="top: 10%; left: 120%">
+            <a target="_blank" href="https://udara.io/" style="color: inherit">
+              <div class=site-title> Udara Jay </div>
+            </a>
+              <div class=site-url> udara.io </div>
+              <div class=site-description> Interested in a little bit of everything, but mostly– technology, genetics and startups.</div>
+          </div>
+
         </section>
 
          <section style="top: -550px; left: 700px">
@@ -739,6 +763,22 @@
             </a>
               <div class=site-url> neal.fun </div>
               <div class=site-description> Maker of excellent mini-games.</div>
+          </div>
+
+          <div class=site style="top: 60%; left: -40%">
+            <a target="_blank" href="https://www.brendanschlagel.com" style="color: inherit">
+              <div class=site-title> Brendan Schlagel </div>
+            </a>
+              <div class=site-url> brendanschlagel.com </div>
+              <div class=site-description> writer, media-maker, building <a href="https://hyperlink.academy">hyperlink.academy</a>.</div>
+          </div>
+
+          <div class=site style="top: 45%; left: 80%">
+            <a target="_blank" href="https://interconnected.org" style="color: inherit">
+              <div class=site-title> Matt Webb </div>
+            </a>
+              <div class=site-url> interconnected.org </div>
+              <div class=site-description> Speculations about the future of technology, design, and society.</div>
           </div>
 
           <div class=site style="top: 30%; left: 20%">
@@ -818,6 +858,14 @@
             </a>
               <div class=site-url> tyler.cafe </div>
               <div class=site-description> Guy who softwares.</div>
+          </div>
+
+           <div class=site style="top: 40%; left: 90%">
+            <a target="_blank" href="https://slim.computer" style="color: inherit">
+              <div class=site-title> Sarah Lim </div>
+            </a>
+              <div class=site-url> slim.computer </div>
+              <div class=site-description> She is a computer scientist.</div>
           </div>
 
           <div class=site style="top: 30%; left: 20%">
@@ -900,6 +948,14 @@
               <div class=site-description> computer-ey things, personal things.  </div>
           </div>
 
+          <div class=site style="top: 90%; left: 50%">
+            <a target="_blank" href="https://a9.io/" style="color: inherit">
+              <div class=site-title> Max Krieger </div>
+            </a>
+              <div class=site-url> a9.io</div>
+              <div class=site-description> Interaction design and implementation.  </div>
+          </div>
+
         </section>
 
         <section style="top: -1300px; left: -100px">
@@ -952,7 +1008,7 @@
               <div class=site-description> RIP. </div>
           </div>
 
-          <div class=site style="top: 30%; left: -10%">
+          <div class=site style="top: 30%; left: -20%">
             <a target="_blank" href="https://kwokchain.com" style="color: inherit">
               <div class=site-title> Kwokchain</div>
             </a>
@@ -1287,7 +1343,7 @@
       <div class="info-text">
         <p> A <a target="_blank" href="https://nihalsahu.net/">friend</a> said to me, "your detailed <a href="hypertext.joodaloop.com"> list</a> of favourite bloggers is very nice, but where's the list of every single website/web person you like?"</p>
         <p> This map is an attempt at answering that question.</p>
-        <p> <b>Map size: </b> 121 sites, 20 sections. </p>
+        <p> <b>Map size: </b> <span id=site-count>121</span> sites, <span id=section-count>20</span> sections. </p>
         <p> Someday I will make this look prettier, for now it is merely functional. </p>
         <p> Copyright and stuff belongs to <a href="https://joodaloop.com">Judah</a>. </p>
       </div>
@@ -1308,6 +1364,9 @@
                 })
 
       pz.smoothZoom(500, 500, 0.3)
+
+      document.getElementById('site-count').innerText = document.querySelectorAll('.site').length
+      document.getElementById('section-count').innerText = document.querySelectorAll('section').length
 
       pz.on('zoom', () => {
         let scale = pz.getTransform().scale
@@ -1342,8 +1401,6 @@
 
           pz.moveTo(x - deltaX, y - deltaY);
       });
-
-      // console.log(document.querySelectorAll('.site').length)
 
 </script>
       
