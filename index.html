@@ -64,9 +64,10 @@
 
       main{
         width: 100vw;
-        min-height: 100vh;
+        height: 100vh;
         background: #d9d6cd;
         color: inherit;
+        overflow: hidden;
       }
 
       button{
@@ -1370,7 +1371,8 @@
                       return shouldIgnore;
                     },
                     onTouch: function(e) {
-                      return false; // tells the library to not preventDefault.
+                      if(e.target.classList.contains('site-title')) return false
+                      else return true; // tells the library to not preventDefault.
                     }
                 })
 
