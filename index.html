@@ -1,46 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head> 
-      <title> Map of my Internet </title>
-      <meta charset="utf-8">
-      <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <title>Map of my Internet</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <link rel="apple-touch-icon" sizes="180x180"  href="icon.png"> 
-      <link rel="icon" type="image/png" sizes="32x32" href="icon.png"> 
-      <link rel="icon" type="image/png" sizes="16x16"  href="icon.png"> 
+    <link rel="apple-touch-icon" sizes="180x180" href="icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="icon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="icon.png" />
 
-      <!-- Facebook Open Graph tags -->
-      <meta property="og:url" content="https://map.joodaloop.com" />
-      <meta property="og:title" content="Map of my Internet" />
-      <meta property="og:description" content="Yet another Joodaloop minisite." />
-      <meta property="og:image" content="https://map.joodaloop.com/preview.png" />
+    <!-- Facebook Open Graph tags -->
+    <meta property="og:url" content="https://map.joodaloop.com" />
+    <meta property="og:title" content="Map of my Internet" />
+    <meta property="og:description" content="Yet another Joodaloop minisite." />
+    <meta property="og:image" content="https://map.joodaloop.com/preview.png" />
 
+    <!-- Twitter Card (large image card) tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@joodaloop" />
+    <meta name="twitter:title" content="Map of my Internet" />
+    <meta name="twitter:description" content="Yet another Joodaloop minisite." />
+    <meta name="twitter:image" content="https://map.joodaloop.com/preview.png" />
 
-      <!-- Twitter Card (large image card) tags -->
-      <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:creator" content="@joodaloop">
-      <meta name="twitter:title" content="Map of my Internet">
-      <meta name="twitter:description" content="Yet another Joodaloop minisite." />
-      <meta name="twitter:image" content="https://map.joodaloop.com/preview.png" />
-
-      <script src="panzoom.min.js"></script>
+    <script src="panzoom.min.js"></script>
 
     <style>
-
       @font-face {
-        font-family: 'GeneralSans';
+        font-family: "GeneralSans";
         font-style: normal;
-        src: url('./GeneralSans.ttf');
+        src: url("./GeneralSans.ttf");
         font-display: swap;
-        font-weight: 1 999;  
+        font-weight: 1 999;
       }
 
-      :root{
+      :root {
         --title-size: 18px;
       }
 
-      h1{
+      h1 {
         position: fixed;
         width: fit-content;
         top: 0em;
@@ -53,16 +51,17 @@
         margin: 0px;
       }
 
-      body{
+      body {
         margin: 0px;
         max-height: 100vh;
         max-width: 100vw;
         overflow: hidden;
         font-family: GeneralSans;
         color: #504d47;
+        touch-action: none;
       }
 
-      main{
+      main {
         width: 100vw;
         height: 100vh;
         background: #d9d6cd;
@@ -70,7 +69,7 @@
         overflow: hidden;
       }
 
-      button{
+      button {
         background: #e9e6dd;
         border: none;
         height: 1.6em;
@@ -79,34 +78,34 @@
         color: inherit;
       }
 
-      .map{
+      .map {
         width: 10px;
         height: 10px;
         position: absolute;
         color: inherit;
       }
 
-      .site{
+      .site {
         width: 16em;
         position: absolute;
-/*        border: solid 1px black;*/
+        /*        border: solid 1px black;*/
         padding: 0.5em;
         border-radius: 4px;
         user-select: none;
         z-index: 2;
-/*        transition: background 0.3s ease;*/
+        /*        transition: background 0.3s ease;*/
       }
 
-      .site:hover{
-/*        background: #e9e6dd;*/
+      .site:hover {
+        /*        background: #e9e6dd;*/
       }
 
-      .site a{
+      .site a {
         text-decoration: none;
         font-weight: 400;
       }
 
-      .site-title{
+      .site-title {
         display: inline-block;
         margin-right: 0.25em;
         font-weight: 600;
@@ -114,7 +113,7 @@
         font-size: 18px;
       }
 
-      .site-url{
+      .site-url {
         font-size: 0.8em;
         transition: opacity 0.3s ease;
         padding-left: 0em;
@@ -123,7 +122,7 @@
         opacity: 0.5;
       }
 
-      .site-description{
+      .site-description {
         font-size: 0.8em;
         margin-top: 0.75em;
         opacity: 0;
@@ -133,24 +132,25 @@
         line-height: 1.25em;
       }
 
-      .site-description a{
+      .site-description a {
         text-decoration: underline;
         color: inherit;
       }
 
-      .site:hover .site-description, .site:hover .site-title{
+      .site:hover .site-description,
+      .site:hover .site-title {
         opacity: 1;
       }
 
-      section{
-/*        background: #eeeeee55;*/
+      section {
+        /*        background: #eeeeee55;*/
         width: 600px;
         height: 600px;
         border-radius: 100%;
         position: absolute;
       }
 
-      .section-title{
+      .section-title {
         font-size: var(--title-size);
         position: absolute;
         top: calc(50% - 1em);
@@ -159,7 +159,7 @@
         font-weight: 600;
       }
 
-      .info{
+      .info {
         position: fixed;
         top: 0.5em;
         right: 0.5em;
@@ -167,7 +167,7 @@
         width: 18em;
       }
 
-      .info-text{
+      .info-text {
         padding: 1.2em;
         font-size: 13px;
         text-align: left;
@@ -178,1289 +178,1314 @@
         background: #e9e6dd;
       }
 
-      .info-text p:first-child{
+      .info-text p:first-child {
         margin-top: 0px;
       }
 
-      .info-text p:last-child{
+      .info-text p:last-child {
         margin-bottom: 0px;
       }
 
-      .info-text a{
+      .info-text a {
         color: inherit;
       }
-      
     </style>
-
-    <h1> Map of my internet</h1>
+  </head>
+  <body>
+    <h1>Map of my internet</h1>
 
     <!-- http://trycypress.com -->
     <!-- https://twitter.com/nicholatian -->
     <!-- https://twitter.com/liminal_warmth -->
 
     <main>
-      <div class=map>
-
+      <div class="map">
         <section style="top: 200px; left: -1800px">
-          <div class=section-title>STEMlords</div>
+          <div class="section-title">STEMlords</div>
 
-          <div class=site style="top: 25%; left: 20%">
+          <div class="site" style="top: 25%; left: 20%">
             <a target="_blank" href="https://evanchen.cc/" style="color: inherit">
-              <div class=site-title> Evan Chen </div>
+              <div class="site-title">Evan Chen</div>
             </a>
-              <div class=site-url> evanchen.cc </div>
-              <div class=site-description> Author of <a target="_blank" href="https://venhance.github.io/napkin/Napkin.pdf">Infinite Napkin</a>.</div>
+            <div class="site-url">evanchen.cc</div>
+            <div class="site-description">
+              Author of <a target="_blank" href="https://venhance.github.io/napkin/Napkin.pdf">Infinite Napkin</a>.
+            </div>
           </div>
 
-          <div class=site style="top: 70%; left: 40%">
+          <div class="site" style="top: 70%; left: 40%">
             <a target="_blank" href="https://angeris.github.io" style="color: inherit">
-              <div class=site-title> Guillermo Angeris </div>
+              <div class="site-title">Guillermo Angeris</div>
             </a>
-              <div class=site-url> angeris.github.io </div>
-              <div class=site-description> Convex optimisation proofs enjoyer. Not a real doctor.</div>
+            <div class="site-url">angeris.github.io</div>
+            <div class="site-description">Convex optimisation proofs enjoyer. Not a real doctor.</div>
           </div>
 
-          <div class=site style="top: 20%; left: 80%">
+          <div class="site" style="top: 20%; left: 80%">
             <a target="_blank" href="https://scottlocklin.wordpres.com" style="color: inherit">
-              <div class=site-title> Locklin on science </div>
+              <div class="site-title">Locklin on science</div>
             </a>
-              <div class=site-url> scottlocklin.wordpres.com </div>
-              <div class=site-description> Crankerous old physics guy. </div>
+            <div class="site-url">scottlocklin.wordpres.com</div>
+            <div class="site-description">Crankerous old physics guy.</div>
           </div>
 
-          <div class=site style="top: 50%; left: 80%">
+          <div class="site" style="top: 50%; left: 80%">
             <a target="_blank" href="https://ciechanow.ski/" style="color: inherit">
-              <div class=site-title> Bartosz Ciechanowski </div>
+              <div class="site-title">Bartosz Ciechanowski</div>
             </a>
-              <div class=site-url> ciechanow.ski </div>
-              <div class=site-description> Crankerous old physics guy. </div>
+            <div class="site-url">ciechanow.ski</div>
+            <div class="site-description">Crankerous old physics guy.</div>
           </div>
-
         </section>
 
-         <section style="top: -350px; left: -1700px">
-          <div class=section-title>Academia</div>
+        <section style="top: -350px; left: -1700px">
+          <div class="section-title">Academia</div>
 
-          <div class=site style="top: 80%; left: 20%">
+          <div class="site" style="top: 80%; left: 20%">
             <a target="_blank" href="https://infoproc.blogspot.com" style="color: inherit">
-              <div class=site-title> Steve Hsu </div>
+              <div class="site-title">Steve Hsu</div>
             </a>
-              <div class=site-url> infoproc.blogspot.com </div>
-              <div class=site-description> Genomics, statistics, physics.</div>
+            <div class="site-url">infoproc.blogspot.com</div>
+            <div class="site-description">Genomics, statistics, physics.</div>
           </div>
 
-          <div class=site style="top: 20%; left: 55%">
+          <div class="site" style="top: 20%; left: 55%">
             <a target="_blank" href="https://bactra.org/" style="color: inherit">
-              <div class=site-title> Cosma Shalizi </div>
+              <div class="site-title">Cosma Shalizi</div>
             </a>
-              <div class=site-url> bactra.org </div>
-              <div class=site-description> Genomics, statistics, physics</div>
+            <div class="site-url">bactra.org</div>
+            <div class="site-description">Genomics, statistics, physics</div>
           </div>
 
-          <div class=site style="top: 60%; left: 50%">
+          <div class="site" style="top: 60%; left: 50%">
             <a target="_blank" href="https://simondedeo.com/" style="color: inherit">
-              <div class=site-title> Simon Dedeo </div>
+              <div class="site-title">Simon Dedeo</div>
             </a>
-              <div class=site-url> simondedeo.com </div>
-              <div class=site-description> Professor at CMU, I think. Writer of helpful thigs like <a target="_blank" href="http://santafe.edu/~simon/it.pdf">Information Theory for Intelligent People</a>.</div>
+            <div class="site-url">simondedeo.com</div>
+            <div class="site-description">
+              Professor at CMU, I think. Writer of helpful thigs like
+              <a target="_blank" href="http://santafe.edu/~simon/it.pdf">Information Theory for Intelligent People</a>.
+            </div>
           </div>
 
-          <div class=site style="top: 30%; left: 10%">
+          <div class="site" style="top: 30%; left: 10%">
             <a target="_blank" href="https://delong.typepad.com/" style="color: inherit">
-              <div class=site-title> Brad Delong</div>
+              <div class="site-title">Brad Delong</div>
             </a>
-              <div class=site-url> delong.typepad.com </div>
-              <div class=site-description> Econ prof at UC Berkeley, wrote <a target="_blank" href="https://mitpressbookstore.mit.edu/book/9781541604247">a book</a>.</div>
+            <div class="site-url">delong.typepad.com</div>
+            <div class="site-description">
+              Econ prof at UC Berkeley, wrote
+              <a target="_blank" href="https://mitpressbookstore.mit.edu/book/9781541604247">a book</a>.
+            </div>
           </div>
-
-          
-
         </section>
 
         <section style="top: -700px; left: -1200px">
-          <div class=section-title>Internet Culture</div>
+          <div class="section-title">Internet Culture</div>
 
-          <div class=site style="top: 60%; left: 20%">
+          <div class="site" style="top: 60%; left: 20%">
             <a target="_blank" href="https://aaronzlewis.com/" style="color: inherit">
-              <div class=site-title> Aaron Z. Lewis </div>
+              <div class="site-title">Aaron Z. Lewis</div>
             </a>
-              <div class=site-url> aaronzlewis.com </div>
-              <div class=site-description> Smart guy. </div>
+            <div class="site-url">aaronzlewis.com</div>
+            <div class="site-description">Smart guy.</div>
           </div>
 
-          <div class=site style="top: 70%; left: 50%">
+          <div class="site" style="top: 70%; left: 50%">
             <a target="_blank" href="https://kneelingbus.net/" style="color: inherit">
-              <div class=site-title> Kneeling Bus </div>
+              <div class="site-title">Kneeling Bus</div>
             </a>
-              <div class=site-url> kneelingbus.net </div>
-              <div class=site-description> Thinking about sociology amidst technology. </div>
+            <div class="site-url">kneelingbus.net</div>
+            <div class="site-description">Thinking about sociology amidst technology.</div>
           </div>
 
-          <div class=site style="top: 20%; left: 20%">
+          <div class="site" style="top: 20%; left: 20%">
             <a target="_blank" href="https://coldhealing.substack.com" style="color: inherit">
-              <div class=site-title>Cold Healing </div>
+              <div class="site-title">Cold Healing</div>
             </a>
-              <div class=site-url> coldhealing.substack.com </div>
-              <div class=site-description> media criticism and diary entries, sometimes both. </div>
+            <div class="site-url">coldhealing.substack.com</div>
+            <div class="site-description">media criticism and diary entries, sometimes both.</div>
           </div>
 
-          <div class=site style="top: 30%; left: 80%">
+          <div class="site" style="top: 30%; left: 80%">
             <a target="_blank" href="https://default.blog" style="color: inherit">
-              <div class=site-title> Default Friend </div>
+              <div class="site-title">Default Friend</div>
             </a>
-              <div class=site-url> default.blog </div>
-              <div class=site-description> Keywords: internet history, internet culture, digital communities, millennial nostalgia, media ecology, fandom and fan studies. </div>
+            <div class="site-url">default.blog</div>
+            <div class="site-description">
+              Keywords: internet history, internet culture, digital communities, millennial nostalgia, media ecology,
+              fandom and fan studies.
+            </div>
           </div>
-          
         </section>
 
         <section style="top: -100px; left: -1100px">
-          <div class=section-title>Ye Olde Blogosphere</div>
+          <div class="section-title">Ye Olde Blogosphere</div>
 
-          <div class=site style="top: 30%; left: 80%">
+          <div class="site" style="top: 30%; left: 80%">
             <a target="_blank" href="https://www.ribbonfarm.com/" style="color: inherit">
-              <div class=site-title> Venkatesh Rao</div>
+              <div class="site-title">Venkatesh Rao</div>
             </a>
-              <div class=site-url> ribbonfarm.com </div>
-              <div class=site-description> Lowkey a genius, if you ask me. </div>
+            <div class="site-url">ribbonfarm.com</div>
+            <div class="site-description">Lowkey a genius, if you ask me.</div>
           </div>
 
-          <div class=site style="top: 20%; left: 20%">
+          <div class="site" style="top: 20%; left: 20%">
             <a target="_blank" href="https://thelastpsychiatrist.com/" style="color: inherit">
-              <div class=site-title> The Last Psychiatrist</div>
+              <div class="site-title">The Last Psychiatrist</div>
             </a>
-              <div class=site-url> thelastpsychiatrist.com </div>
-              <div class=site-description> Abrasive, personal favourite. Wrote a really long book. </div>
+            <div class="site-url">thelastpsychiatrist.com</div>
+            <div class="site-description">Abrasive, personal favourite. Wrote a really long book.</div>
           </div>
 
-          <div class=site style="top: 30%; left: -15%">
+          <div class="site" style="top: 30%; left: -15%">
             <a target="_blank" href="https://hotelconcierge.tumblr.com" style="color: inherit">
-              <div class=site-title> Hotel Concierge </div>
+              <div class="site-title">Hotel Concierge</div>
             </a>
-              <div class=site-url> hotelconcierge.tumblr.com </div>
-              <div class=site-description> Also TLP, or so people say. </div>
+            <div class="site-url">hotelconcierge.tumblr.com</div>
+            <div class="site-description">Also TLP, or so people say.</div>
           </div>
 
-          <div class=site style="top: 60%; left: 90%">
+          <div class="site" style="top: 60%; left: 90%">
             <a target="_blank" href="https://qntm.org/" style="color: inherit">
-              <div class=site-title> qntm </div>
+              <div class="site-title">qntm</div>
             </a>
-              <div class=site-url> qntm.org </div>
-              <div class=site-description> Business-of-tech theorist. </div>
+            <div class="site-url">qntm.org</div>
+            <div class="site-description">Business-of-tech theorist.</div>
           </div>
 
-          <div class=site style="top: 80%; left: 80%">
+          <div class="site" style="top: 80%; left: 80%">
             <a target="_blank" href="https://www.eugenewei.com/" style="color: inherit">
-              <div class=site-title> Eugene Wei  </div>
+              <div class="site-title">Eugene Wei</div>
             </a>
-              <div class=site-url> eugenewei.com </div>
-              <div class=site-description> Business-of-tech theorist. </div>
+            <div class="site-url">eugenewei.com</div>
+            <div class="site-description">Business-of-tech theorist.</div>
           </div>
 
-          <div class=site style="top: 0%; left: 10%">
+          <div class="site" style="top: 0%; left: 10%">
             <a target="_blank" href="http://scholars-stage.org" style="color: inherit">
-              <div class=site-title> Scholar's Stage</div>
+              <div class="site-title">Scholar's Stage</div>
             </a>
-              <div class=site-url> scholars-stage.org</div>
-              <div class=site-description> History, politics, culture, behavioral science, and strategic thought—often with a focus on East and Southeast Asian affairs.  </div>
+            <div class="site-url">scholars-stage.org</div>
+            <div class="site-description">
+              History, politics, culture, behavioral science, and strategic thought—often with a focus on East and
+              Southeast Asian affairs.
+            </div>
           </div>
 
-          <div class=site style="top: 60%; left: 50%">
+          <div class="site" style="top: 60%; left: 50%">
             <a target="_blank" href="https://www.stilldrinking.org" style="color: inherit">
-              <div class=site-title> Still Drinking</div>
+              <div class="site-title">Still Drinking</div>
             </a>
-              <div class=site-url> stilldrinking.org </div>
-              <div class=site-description> Like the name says. </div>
+            <div class="site-url">stilldrinking.org</div>
+            <div class="site-description">Like the name says.</div>
           </div>
 
-          <div class=site style="top: 10%; left: 70%">
+          <div class="site" style="top: 10%; left: 70%">
             <a target="_blank" href="https://idlewords.com" style="color: inherit">
-              <div class=site-title> Idle Words</div>
+              <div class="site-title">Idle Words</div>
             </a>
-              <div class=site-url> idlewords.com </div>
-              <div class=site-description> Guy who made Pinboard, fairly cranky specimin. </div>
+            <div class="site-url">idlewords.com</div>
+            <div class="site-description">Guy who made Pinboard, fairly cranky specimin.</div>
           </div>
-
-
         </section>
 
         <section style="top: 600px; left: -1400px">
-          <div class=section-title>Money Stuff</div>
+          <div class="section-title">Money Stuff</div>
 
-          <div class=site style="top: 40%; left: 90%">
+          <div class="site" style="top: 40%; left: 90%">
             <a target="_blank" href="https://www.thediff.co" style="color: inherit">
-              <div class=site-title> The Diff </div>
+              <div class="site-title">The Diff</div>
             </a>
-              <div class=site-url> www.thediff.co </div>
-              <div class=site-description> Inflections in tech and finance. </div>
+            <div class="site-url">www.thediff.co</div>
+            <div class="site-description">Inflections in tech and finance.</div>
           </div>
 
-          <div class=site style="top: 70%; left: 60%">
+          <div class="site" style="top: 70%; left: 60%">
             <a target="_blank" href="https://moontowermeta.com" style="color: inherit">
-              <div class=site-title> Moontower </div>
+              <div class="site-title">Moontower</div>
             </a>
-              <div class=site-url> moontowermeta.com </div>
-              <div class=site-description> «math, education, parenting, games, business, and occasionally hair bands🎸» </div>
+            <div class="site-url">moontowermeta.com</div>
+            <div class="site-description">
+              «math, education, parenting, games, business, and occasionally hair bands🎸»
+            </div>
           </div>
 
-          <div class=site style="top: 20%; left: 50%">
+          <div class="site" style="top: 20%; left: 50%">
             <a target="_blank" href="https://kylascanlon.com/" style="color: inherit">
-              <div class=site-title> Kyla Scanlon </div>
+              <div class="site-title">Kyla Scanlon</div>
             </a>
-              <div class=site-url> kylascanlon.com </div>
-              <div class=site-description> Looking at the economy with a human-focused lens, often with video. </div>
+            <div class="site-url">kylascanlon.com</div>
+            <div class="site-description">Looking at the economy with a human-focused lens, often with video.</div>
           </div>
 
-          <div class=site style="top: 50%; left: 0%">
+          <div class="site" style="top: 50%; left: 0%">
             <a target="_blank" href="https://www.bloomberg.com/account/newsletters/money-stuff" style="color: inherit">
-              <div class=site-title> Matt Levine </div>
+              <div class="site-title">Matt Levine</div>
             </a>
-              <div class=site-url> bloomberg.com/money-stuff </div>
-              <div class=site-description> Yeah, everyone reads him, and deservedly so. </div>
+            <div class="site-url">bloomberg.com/money-stuff</div>
+            <div class="site-description">Yeah, everyone reads him, and deservedly so.</div>
           </div>
-
         </section>
 
         <section style="top: 0px; left: 0px">
-          <div class=section-title>"Do Things" people</div>
+          <div class="section-title">"Do Things" people</div>
 
-          <div class=site style="top: 25%; left: 40%">
+          <div class="site" style="top: 25%; left: 40%">
             <a target="_blank" href="https://austinkleon.com" style="color: inherit">
-              <div class=site-title> Austin Kleon </div>
+              <div class="site-title">Austin Kleon</div>
             </a>
-              <div class=site-url> austinkleon.com </div>
-              <div class=site-description> Writer who draws.</div>
+            <div class="site-url">austinkleon.com</div>
+            <div class="site-description">Writer who draws.</div>
           </div>
 
-          <div class=site style="top:60%; left: 40%">
+          <div class="site" style="top: 60%; left: 40%">
             <a target="_blank" href="https://sive.rs" style="color: inherit">
-              <div class=site-title> Derek Sivers </div>
+              <div class="site-title">Derek Sivers</div>
             </a>
-              <div class=site-url> sive.rs </div>
-              <div class=site-description> He's been a lot of things, so he's earned the right to be a writer too.</div>
+            <div class="site-url">sive.rs</div>
+            <div class="site-description">He's been a lot of things, so he's earned the right to be a writer too.</div>
           </div>
 
-          <div class=site style="top: 90%; left: 40%">
+          <div class="site" style="top: 90%; left: 40%">
             <a target="_blank" href="https://simonsarris.com/" style="color: inherit">
-              <div class=site-title> Simon Sarris </div>
+              <div class="site-title">Simon Sarris</div>
             </a>
-              <div class=site-url> simonsarris.com </div>
-              <div class=site-description> Beautiful things appreciator/creator, neo-trad propoganda.</div>
+            <div class="site-url">simonsarris.com</div>
+            <div class="site-description">Beautiful things appreciator/creator, neo-trad propoganda.</div>
           </div>
 
-          <div class=site style="top: 60%; left: 0%">
+          <div class="site" style="top: 60%; left: 0%">
             <a target="_blank" href="https://karlyang.net/" style="color: inherit">
-              <div class=site-title> Karl Yang </div>
+              <div class="site-title">Karl Yang</div>
             </a>
-              <div class=site-url> karlyang.net </div>
-              <div class=site-description> Beautiful things appreciator/creator, neo-trad propoganda.</div>
+            <div class="site-url">karlyang.net</div>
+            <div class="site-description">Beautiful things appreciator/creator, neo-trad propoganda.</div>
           </div>
 
-          <div class=site style="top: 90%; left: 0%">
+          <div class="site" style="top: 90%; left: 0%">
             <a target="_blank" href="https://jsomers.net" style="color: inherit">
-              <div class=site-title> James Somers </div>
+              <div class="site-title">James Somers</div>
             </a>
-              <div class=site-url> jsomers.net </div>
-              <div class=site-description> Writer and programmer.</div>
+            <div class="site-url">jsomers.net</div>
+            <div class="site-description">Writer and programmer.</div>
           </div>
 
-          <div class=site style="top: 30%; left: -20%">
+          <div class="site" style="top: 30%; left: -20%">
             <a target="_blank" href="https://randsinrepose.com" style="color: inherit">
-              <div class=site-title> Rands in Repose </div>
+              <div class="site-title">Rands in Repose</div>
             </a>
-              <div class=site-url> randsinrepose.com </div>
-              <div class=site-description> Really fun writing, about whatever he likes.</div>
+            <div class="site-url">randsinrepose.com</div>
+            <div class="site-description">Really fun writing, about whatever he likes.</div>
           </div>
 
-          <div class=site style="top: 20%; left: 80%">
+          <div class="site" style="top: 20%; left: 80%">
             <a target="_blank" href="https://www.mollymielke.com" style="color: inherit">
-              <div class=site-title> Molly Mielke </div>
+              <div class="site-title">Molly Mielke</div>
             </a>
-              <div class=site-url> mollymielke.com </div>
-              <div class=site-description> Lots of enthusiasm.</div>
+            <div class="site-url">mollymielke.com</div>
+            <div class="site-description">Lots of enthusiasm.</div>
           </div>
-
-          
-
         </section>
 
         <section style="top: -450px; left: -500px">
-          <div class=section-title>Feral Free Agents</div>
+          <div class="section-title">Feral Free Agents</div>
 
-          <div class=site style="top: 20%; left: 60%">
+          <div class="site" style="top: 20%; left: 60%">
             <a target="_blank" href="https://tomcritchlow.com/" style="color: inherit">
-              <div class=site-title> Tom Critchlow </div>
+              <div class="site-title">Tom Critchlow</div>
             </a>
-              <div class=site-url> tomcritchlow.com </div>
-              <div class=site-description> Indie consultant. Bricolage enthusiast. </div>
+            <div class="site-url">tomcritchlow.com</div>
+            <div class="site-description">Indie consultant. Bricolage enthusiast.</div>
           </div>
 
-          <div class=site style="top: 20%; left: 10%">
+          <div class="site" style="top: 20%; left: 10%">
             <a target="_blank" href="https://michaelcurzi.com" style="color: inherit">
-              <div class=site-title> Micheal Curzi </div>
+              <div class="site-title">Micheal Curzi</div>
             </a>
-              <div class=site-url> michaelcurzi.com </div>
-              <div class=site-description>Storyteller, <a target="_blank" href="https://michaelcurzi.substack.com/p/26-seven-more-vibe-reels">vibe reel</a> maker, he can think.</div>
+            <div class="site-url">michaelcurzi.com</div>
+            <div class="site-description">
+              Storyteller,
+              <a target="_blank" href="https://michaelcurzi.substack.com/p/26-seven-more-vibe-reels">vibe reel</a>
+              maker, he can think.
+            </div>
           </div>
 
-          <div class=site style="top: 0%; left:40%">
+          <div class="site" style="top: 0%; left: 40%">
             <a target="_blank" href="https://tobyshorin.com/" style="color: inherit">
-              <div class=site-title> Toby Shorin </div>
+              <div class="site-title">Toby Shorin</div>
             </a>
-              <div class=site-url> tobyshorin.com </div>
-              <div class=site-description> Founder of Other Internet. Now a psychology nerd.</div>
+            <div class="site-url">tobyshorin.com</div>
+            <div class="site-description">Founder of Other Internet. Now a psychology nerd.</div>
           </div>
 
-          <div class=site style="top: 80%; left: 70%">
+          <div class="site" style="top: 80%; left: 70%">
             <a target="_blank" href="https://visakanv.com" style="color: inherit">
-              <div class=site-title> Visakan Veeraswamy </div>
+              <div class="site-title">Visakan Veeraswamy</div>
             </a>
-              <div class=site-url> visakanv.com </div>
-              <div class=site-description> Twitter power user, internet switchboard operator, do100things encourager.</div>
+            <div class="site-url">visakanv.com</div>
+            <div class="site-description">
+              Twitter power user, internet switchboard operator, do100things encourager.
+            </div>
           </div>
-
         </section>
 
         <section style="top: 750px; left: 200px">
-          <div class=section-title>Postrats</div>
+          <div class="section-title">Postrats</div>
 
-          <div class=site style="top: 20%; left: 20%">
+          <div class="site" style="top: 20%; left: 20%">
             <a target="_blank" href="https://tis.so" style="color: inherit">
-              <div class=site-title> The Inexact Sciences </div>
+              <div class="site-title">The Inexact Sciences</div>
             </a>
-              <div class=site-url> tis.so </div>
-              <div class=site-description> Community blog (the community is a bunch of neo-postrats). </div>
+            <div class="site-url">tis.so</div>
+            <div class="site-description">Community blog (the community is a bunch of neo-postrats).</div>
           </div>
 
-          <div class=site style="top: 60%; left: 20%">
+          <div class="site" style="top: 60%; left: 20%">
             <a target="_blank" href="https://yearlycider.wordpress.com/" style="color: inherit">
-              <div class=site-title> Yearly Cider </div>
+              <div class="site-title">Yearly Cider</div>
             </a>
-              <div class=site-url> yearlycider.wordpress.com</div>
-              <div class=site-description> OG Postrat. </div>
+            <div class="site-url">yearlycider.wordpress.com</div>
+            <div class="site-description">OG Postrat.</div>
           </div>
 
-          <div class=site style="top: 25%; left: 60%">
+          <div class="site" style="top: 25%; left: 60%">
             <a target="_blank" href="https://hazardoustimes.substack.com/" style="color: inherit">
-              <div class=site-title> Hazardous Times </div>
+              <div class="site-title">Hazardous Times</div>
             </a>
-              <div class=site-url> hazardoustimes.substack.com</div>
-              <div class=site-description> Prototypical modern postrat writing. </div>
+            <div class="site-url">hazardoustimes.substack.com</div>
+            <div class="site-description">Prototypical modern postrat writing.</div>
           </div>
 
-          <div class=site style="top: 60%; left: 60%">
+          <div class="site" style="top: 60%; left: 60%">
             <a target="_blank" href="https://crispychicken.cc" style="color: inherit">
-              <div class=site-title> Crispy Chicken </div>
+              <div class="site-title">Crispy Chicken</div>
             </a>
-              <div class=site-url> crispychicken.cc </div>
-              <div class=site-description> Friend, communication theorist. </div>
+            <div class="site-url">crispychicken.cc</div>
+            <div class="site-description">Friend, communication theorist.</div>
           </div>
 
-          <div class=site style="top: 70%; left: -5%">
+          <div class="site" style="top: 70%; left: -5%">
             <a target="_blank" href="https://desystemize.substack.com" style="color: inherit">
-              <div class=site-title> Desystemise</div>
+              <div class="site-title">Desystemise</div>
             </a>
-              <div class=site-url> desystemize.substack.com</div>
-              <div class=site-description> Thinking about things, very carefully. </div>
+            <div class="site-url">desystemize.substack.com</div>
+            <div class="site-description">Thinking about things, very carefully.</div>
           </div>
 
-          <div class=site style="top: 80%; left: -50%">
+          <div class="site" style="top: 80%; left: -50%">
             <a target="_blank" href="https://slimemoldtimemold.com" style="color: inherit">
-              <div class=site-title> SLIME MOLD TIME MOLD</div>
+              <div class="site-title">SLIME MOLD TIME MOLD</div>
             </a>
-              <div class=site-url> slimemoldtimemold.com</div>
-              <div class=site-description> Questionable vercacity, entertaining writing. They once made many people eat potatoes.</div>
+            <div class="site-url">slimemoldtimemold.com</div>
+            <div class="site-description">
+              Questionable vercacity, entertaining writing. They once made many people eat potatoes.
+            </div>
           </div>
-          
         </section>
 
         <section style="top: 50px; left: 700px">
-          <div class=section-title>Youngins'</div>
+          <div class="section-title">Youngins'</div>
 
-          <div class=site style="top: 0%; left: 25%">
+          <div class="site" style="top: 0%; left: 25%">
             <a target="_blank" href="https://joodaloop.com/" style="color: inherit">
-              <div class=site-title> JOODALOOP </div>
+              <div class="site-title">JOODALOOP</div>
             </a>
-              <div class=site-url> joodaloop.com </div>
-              <div class=site-description> Personal site designer, internet enjoyer, economics sometimes.</div>
+            <div class="site-url">joodaloop.com</div>
+            <div class="site-description">Personal site designer, internet enjoyer, economics sometimes.</div>
           </div>
 
-          <div class=site style="top: 40%; left: -10%">
+          <div class="site" style="top: 40%; left: -10%">
             <a target="_blank" href="https://www.ansonyu.me/" style="color: inherit">
-              <div class=site-title> Anson Yu </div>
+              <div class="site-title">Anson Yu</div>
             </a>
-              <div class=site-url> ansonyu.me </div>
-              <div class=site-description> Tech media, people-organiser at Socratica and elsewhere.</div>
+            <div class="site-url">ansonyu.me</div>
+            <div class="site-description">Tech media, people-organiser at Socratica and elsewhere.</div>
           </div>
 
-          <div class=site style="top: 10%; left: 70%">
+          <div class="site" style="top: 10%; left: 70%">
             <a target="_blank" href="https://walzr.com" style="color: inherit">
-              <div class=site-title> Riley Walz </div>
+              <div class="site-title">Riley Walz</div>
             </a>
-              <div class=site-url> walzr.com </div>
-              <div class=site-description> Just a really cool dude.</div>
+            <div class="site-url">walzr.com</div>
+            <div class="site-description">Just a really cool dude.</div>
           </div>
 
-          <div class=site style="top: 20%; left: 10%">
+          <div class="site" style="top: 20%; left: 10%">
             <a target="_blank" href="https://sarvasvkulpati.com" style="color: inherit">
-              <div class=site-title> Sarvasv Kulpati </div>
+              <div class="site-title">Sarvasv Kulpati</div>
             </a>
-              <div class=site-url> sarvasvkulpati.com </div>
-              <div class=site-description> Follows his curiosity.</div>
+            <div class="site-url">sarvasvkulpati.com</div>
+            <div class="site-description">Follows his curiosity.</div>
           </div>
 
-          <div class=site style="top: -10%; left: 60%">
+          <div class="site" style="top: -10%; left: 60%">
             <a target="_blank" href="https://jzhao.xyz" style="color: inherit">
-              <div class=site-title> Jacky Zhao </div>
+              <div class="site-title">Jacky Zhao</div>
             </a>
-              <div class=site-url> jzhao.xyz </div>
-              <div class=site-description> Agentic and communcal technology for the web, gardener (digital).</div>
+            <div class="site-url">jzhao.xyz</div>
+            <div class="site-description">Agentic and communcal technology for the web, gardener (digital).</div>
           </div>
 
-          <div class=site style="top: 27%; left: 60%">
+          <div class="site" style="top: 27%; left: 60%">
             <a target="_blank" href="https://www.yihuihu.com" style="color: inherit">
-              <div class=site-title> Yihui Hu </div>
+              <div class="site-title">Yihui Hu</div>
             </a>
-              <div class=site-url> yihuihu.com </div>
-              <div class=site-description> Young project-maker with excellent design sense.</div>
+            <div class="site-url">yihuihu.com</div>
+            <div class="site-description">Young project-maker with excellent design sense.</div>
           </div>
-
-          
-          
         </section>
 
         <section style="top: -800px; left: 100px">
-          <div class=section-title>Literacy Enjoyers</div>
+          <div class="section-title">Literacy Enjoyers</div>
 
-          <div class=site style="top: 60%; left: 80%">
+          <div class="site" style="top: 60%; left: 80%">
             <a target="_blank" href="https://arcana.computer" style="color: inherit">
-              <div class=site-title> Justin Duke </div>
+              <div class="site-title">Justin Duke</div>
             </a>
-              <div class=site-url> arcana.computer </div>
-              <div class=site-description> Mailman at Buttondown, blogging enjoyer.</div>
+            <div class="site-url">arcana.computer</div>
+            <div class="site-description">Mailman at Buttondown, blogging enjoyer.</div>
           </div>
 
-          <div class=site style="top: 80%; left: 10%">
+          <div class="site" style="top: 80%; left: 10%">
             <a target="_blank" href="https://nadia.xyz" style="color: inherit">
-              <div class=site-title> Nadia Eghbal </div>
+              <div class="site-title">Nadia Eghbal</div>
             </a>
-              <div class=site-url> nadia.xyz </div>
-              <div class=site-description> Internet thinker.</div>
+            <div class="site-url">nadia.xyz</div>
+            <div class="site-description">Internet thinker.</div>
           </div>
 
-          <div class=site style="top: 60%; left: 40%">
+          <div class="site" style="top: 60%; left: 40%">
             <a target="_blank" href="https://www.robinsloan.com/" style="color: inherit">
-              <div class=site-title> Robin Sloan </div>
+              <div class="site-title">Robin Sloan</div>
             </a>
-              <div class=site-url> robinsloan.com </div>
-              <div class=site-description> Author.</div>
+            <div class="site-url">robinsloan.com</div>
+            <div class="site-description">Author.</div>
           </div>
 
-          <div class=site style="top: 20%; left: 90%">
+          <div class="site" style="top: 20%; left: 90%">
             <a target="_blank" href="https://robinrendle.com/" style="color: inherit">
-              <div class=site-title> Robin Rendle </div>
+              <div class="site-title">Robin Rendle</div>
             </a>
-              <div class=site-url> robinrendle.com</div>
-              <div class=site-description> Author and designer.</div>
+            <div class="site-url">robinrendle.com</div>
+            <div class="site-description">Author and designer.</div>
           </div>
 
-          <div class=site style="top: 50%; left: 0%">
+          <div class="site" style="top: 50%; left: 0%">
             <a target="_blank" href="https://craigmod.com" style="color: inherit">
-              <div class=site-title> Craig Mod </div>
+              <div class="site-title">Craig Mod</div>
             </a>
-              <div class=site-url> craigmod.com </div>
-              <div class=site-description> Very cool guy.</div>
+            <div class="site-url">craigmod.com</div>
+            <div class="site-description">Very cool guy.</div>
           </div>
-
-          
         </section>
 
         <section style="top: -1200px; left: 600px">
+          <div class="section-title">The Designer's Designers</div>
 
-          <div class=section-title>The Designer's Designers</div>
-
-          <div class=site style="top: 0%; left: 50%">
+          <div class="site" style="top: 0%; left: 50%">
             <a target="_blank" href="https://www.carolynzhang.com" style="color: inherit">
-              <div class=site-title> kēlín carolyn zhang </div>
+              <div class="site-title">kēlín carolyn zhang</div>
             </a>
-              <div class=site-url> carolynzhang.com </div>
-              <div class=site-description> making software with a soul.</div>
+            <div class="site-url">carolynzhang.com</div>
+            <div class="site-description">making software with a soul.</div>
           </div>
 
-          <div class=site style="top: 10%; left: 20%">
+          <div class="site" style="top: 10%; left: 20%">
             <a target="_blank" href="https://paco.me" style="color: inherit">
-              <div class=site-title> Paco Coursey </div>
+              <div class="site-title">Paco Coursey</div>
             </a>
-              <div class=site-url> paco.me </div>
-              <div class=site-description> Elegant details, tasteful interactions, minimalism enjoyer.</div>
+            <div class="site-url">paco.me</div>
+            <div class="site-description">Elegant details, tasteful interactions, minimalism enjoyer.</div>
           </div>
 
-          <div class=site style="top: 10%; left: 80%">
+          <div class="site" style="top: 10%; left: 80%">
             <a target="_blank" href="https://kevinnchen.com" style="color: inherit">
-              <div class=site-title> Kevin Chen </div>
+              <div class="site-title">Kevin Chen</div>
             </a>
-              <div class=site-url> kevinnchen.com </div>
-              <div class=site-description> systems, tool-making, infrastructure, visibility, gathering, gardening, printed matter, websites, computer graphics, and open source.</div>
+            <div class="site-url">kevinnchen.com</div>
+            <div class="site-description">
+              systems, tool-making, infrastructure, visibility, gathering, gardening, printed matter, websites, computer
+              graphics, and open source.
+            </div>
           </div>
 
-          <div class=site style="top: 70%; left: -25%">
+          <div class="site" style="top: 70%; left: -25%">
             <a target="_blank" href="https://matthewbutterick.com" style="color: inherit">
-              <div class=site-title> Matthew Butterick </div>
+              <div class="site-title">Matthew Butterick</div>
             </a>
-              <div class=site-url> matthewbutterick.com </div>
-              <div class=site-description> Lawyer and hobbyist programmer, wrote some <a target="_blank" href="https://practicaltypography.com/">typography</a> and <a target="_blank" href="https://beautifulracket.com/">programming</a> books.</div>
+            <div class="site-url">matthewbutterick.com</div>
+            <div class="site-description">
+              Lawyer and hobbyist programmer, wrote some
+              <a target="_blank" href="https://practicaltypography.com/">typography</a> and
+              <a target="_blank" href="https://beautifulracket.com/">programming</a> books.
+            </div>
           </div>
 
-          <div class=site style="top: 53%; left: 68%">
+          <div class="site" style="top: 53%; left: 68%">
             <a target="_blank" href="https://azlen.me" style="color: inherit">
-              <div class=site-title> Azlen </div>
+              <div class="site-title">Azlen</div>
             </a>
-              <div class=site-url> azlen.me </div>
-              <div class=site-description> Interfaces, cyberspace, cities, and the like.</div>
+            <div class="site-url">azlen.me</div>
+            <div class="site-description">Interfaces, cyberspace, cities, and the like.</div>
           </div>
 
-          <div class=site style="top: 35%; left: 100%">
+          <div class="site" style="top: 35%; left: 100%">
             <a target="_blank" href="https://www.ekzhang.com" style="color: inherit">
-              <div class=site-title> Eric Zhang </div>
+              <div class="site-title">Eric Zhang</div>
             </a>
-              <div class=site-url> ekzhang.com </div>
-              <div class=site-description> Scarily impressive polymath, thoughtful designer.</div>
+            <div class="site-url">ekzhang.com</div>
+            <div class="site-description">Scarily impressive polymath, thoughtful designer.</div>
           </div>
 
-          <div class=site style="top: 30%; left: 130%">
+          <div class="site" style="top: 30%; left: 130%">
             <a target="_blank" href="http://muratayfer.com" style="color: inherit">
-              <div class=site-title> Murat Ayfer</div>
+              <div class="site-title">Murat Ayfer</div>
             </a>
-              <div class=site-url> muratayfer.com </div>
-              <div class=site-description> Designer, programmer, sysadmin, generative artist, etc, etc.</div>
+            <div class="site-url">muratayfer.com</div>
+            <div class="site-description">Designer, programmer, sysadmin, generative artist, etc, etc.</div>
           </div>
 
-          <div class=site style="top: 30%; left: 60%">
+          <div class="site" style="top: 30%; left: 60%">
             <a target="_blank" href="https://colly.com/" style="color: inherit">
-              <div class=site-title> Simon Collison </div>
+              <div class="site-title">Simon Collison</div>
             </a>
-              <div class=site-url> colly.com </div>
-              <div class=site-description> Immaculate details, web veteran.</div>
+            <div class="site-url">colly.com</div>
+            <div class="site-description">Immaculate details, web veteran.</div>
           </div>
 
-          <div class=site style="top: 30%; left: 10%">
+          <div class="site" style="top: 30%; left: 10%">
             <a target="_blank" href="https://frankchimero.com/" style="color: inherit">
-              <div class=site-title> Frank Chimero </div>
+              <div class="site-title">Frank Chimero</div>
             </a>
-              <div class=site-url> frankchimero.com </div>
-              <div class=site-description> Writer, designer, essayist, warm and slow.</div>
+            <div class="site-url">frankchimero.com</div>
+            <div class="site-description">Writer, designer, essayist, warm and slow.</div>
           </div>
 
-          <div class=site style="top: 60%; left: 10%">
+          <div class="site" style="top: 60%; left: 10%">
             <a target="_blank" href="https://rsms.me" style="color: inherit">
-              <div class=site-title> Rasmus Anderson </div>
+              <div class="site-title">Rasmus Anderson</div>
             </a>
-              <div class=site-url> rsms.me </div>
-              <div class=site-description> Design legend, creator of Inter, wokring on <a target="_blank" href="https://playb.it/">Playbit</a>.</div>
+            <div class="site-url">rsms.me</div>
+            <div class="site-description">
+              Design legend, creator of Inter, wokring on <a target="_blank" href="https://playb.it/">Playbit</a>.
+            </div>
           </div>
 
-          <div class=site style="top: 67%; left: 55%">
+          <div class="site" style="top: 67%; left: 55%">
             <a target="_blank" href="https://cristobal.space" style="color: inherit">
-              <div class=site-title> Cristóbal Sciutto Rodríguez.  </div>
+              <div class="site-title">Cristóbal Sciutto Rodríguez.</div>
             </a>
-              <div class=site-url> cristobal.space </div>
-              <div class=site-description> Designer, of forms practical and convival.</div>
+            <div class="site-url">cristobal.space</div>
+            <div class="site-description">Designer, of forms practical and convival.</div>
           </div>
 
-          <div class=site style="top: 40%; left: -20%">
+          <div class="site" style="top: 40%; left: -20%">
             <a target="_blank" href="https://chia.design/" style="color: inherit">
-              <div class=site-title> Chia Amisola </div>
+              <div class="site-title">Chia Amisola</div>
             </a>
-              <div class=site-url> chia.design </div>
-              <div class=site-description> One if the best.</div>
+            <div class="site-url">chia.design</div>
+            <div class="site-description">One if the best.</div>
           </div>
 
-          <div class=site style="top: 90%; left: 40%">
+          <div class="site" style="top: 90%; left: 40%">
             <a target="_blank" href="https://maggieappleton.com" style="color: inherit">
-              <div class=site-title> Maggie Appleton </div>
+              <div class="site-title">Maggie Appleton</div>
             </a>
-              <div class=site-url> maggieappleton.com </div>
-              <div class=site-description> Digital gardening, excellent essays, interfaces and more.</div>
+            <div class="site-url">maggieappleton.com</div>
+            <div class="site-description">Digital gardening, excellent essays, interfaces and more.</div>
           </div>
 
-          <div class=site style="top: 10%; left: 120%">
+          <div class="site" style="top: 10%; left: 120%">
             <a target="_blank" href="https://udara.io/" style="color: inherit">
-              <div class=site-title> Udara Jay </div>
+              <div class="site-title">Udara Jay</div>
             </a>
-              <div class=site-url> udara.io </div>
-              <div class=site-description> Interested in a little bit of everything, but mostly– technology, genetics and startups.</div>
+            <div class="site-url">udara.io</div>
+            <div class="site-description">
+              Interested in a little bit of everything, but mostly– technology, genetics and startups.
+            </div>
           </div>
 
-          <div class=site style="top: 72%; left: 100%">
+          <div class="site" style="top: 72%; left: 100%">
             <a target="_blank" href="http://dragonman225.js.org/" style="color: inherit">
-              <div class=site-title> Alexander Wang </div>
+              <div class="site-title">Alexander Wang</div>
             </a>
-              <div class=site-url> dragonman225.js.org</div>
-              <div class=site-description> Tool-maker.  </div>
+            <div class="site-url">dragonman225.js.org</div>
+            <div class="site-description">Tool-maker.</div>
           </div>
-
         </section>
 
-         <section style="top: -550px; left: 700px">
-          <div class=section-title>Web gang</div>
+        <section style="top: -550px; left: 700px">
+          <div class="section-title">Web gang</div>
 
-          <div class=site style="top: 25%; left: 60%">
+          <div class="site" style="top: 25%; left: 60%">
             <a target="_blank" href="https://neal.fun" style="color: inherit">
-              <div class=site-title> Neal (fun) </div>
+              <div class="site-title">Neal (fun)</div>
             </a>
-              <div class=site-url> neal.fun </div>
-              <div class=site-description> Maker of excellent mini-games.</div>
+            <div class="site-url">neal.fun</div>
+            <div class="site-description">Maker of excellent mini-games.</div>
           </div>
 
-          <div class=site style="top: 60%; left: -40%">
+          <div class="site" style="top: 60%; left: -40%">
             <a target="_blank" href="https://www.brendanschlagel.com" style="color: inherit">
-              <div class=site-title> Brendan Schlagel </div>
+              <div class="site-title">Brendan Schlagel</div>
             </a>
-              <div class=site-url> brendanschlagel.com </div>
-              <div class=site-description> writer, media-maker, building <a href="https://hyperlink.academy">hyperlink.academy</a>.</div>
+            <div class="site-url">brendanschlagel.com</div>
+            <div class="site-description">
+              writer, media-maker, building <a href="https://hyperlink.academy">hyperlink.academy</a>.
+            </div>
           </div>
 
-          <div class=site style="top: 45%; left: 80%">
+          <div class="site" style="top: 45%; left: 80%">
             <a target="_blank" href="https://interconnected.org" style="color: inherit">
-              <div class=site-title> Matt Webb </div>
+              <div class="site-title">Matt Webb</div>
             </a>
-              <div class=site-url> interconnected.org </div>
-              <div class=site-description> Speculations about the future of technology, design, and society.</div>
+            <div class="site-url">interconnected.org</div>
+            <div class="site-description">Speculations about the future of technology, design, and society.</div>
           </div>
 
-          <div class=site style="top: 30%; left: 20%">
+          <div class="site" style="top: 30%; left: 20%">
             <a target="_blank" href="https://jim-nielsen.com" style="color: inherit">
-              <div class=site-title> Jim Nielsen </div>
+              <div class="site-title">Jim Nielsen</div>
             </a>
-              <div class=site-url> jim-nielsen.com </div>
-              <div class=site-description> Cares about the web, and blogging.</div>
+            <div class="site-url">jim-nielsen.com</div>
+            <div class="site-description">Cares about the web, and blogging.</div>
           </div>
 
-          <div class=site style="top: 70%; left: 10%">
+          <div class="site" style="top: 70%; left: 10%">
             <a target="_blank" href="https://manuelmoreale.com" style="color: inherit">
-              <div class=site-title> Manual Moreale </div>
+              <div class="site-title">Manual Moreale</div>
             </a>
-              <div class=site-url> manuelmoreale.com </div>
-              <div class=site-description> Writes, designs minimal websites, is a little sad.</div>
+            <div class="site-url">manuelmoreale.com</div>
+            <div class="site-description">Writes, designs minimal websites, is a little sad.</div>
           </div>
 
-          <div class=site style="top: 60%; left: 40%">
+          <div class="site" style="top: 60%; left: 40%">
             <a target="_blank" href="https://stevekrouse.com" style="color: inherit">
-              <div class=site-title> Steve Krouse </div>
+              <div class="site-title">Steve Krouse</div>
             </a>
-              <div class=site-url> stevekrouse.com </div>
-              <div class=site-description> Founder, <a target="_blank" href="https://val.town">val.town</a>. Cares about computers and education.</div>
+            <div class="site-url">stevekrouse.com</div>
+            <div class="site-description">
+              Founder, <a target="_blank" href="https://val.town">val.town</a>. Cares about computers and education.
+            </div>
           </div>
 
-          <div class=site style="top: 35%; left: -15%">
+          <div class="site" style="top: 35%; left: -15%">
             <a target="_blank" href="https://macwright.com" style="color: inherit">
-              <div class=site-title> Tom Macwright </div>
+              <div class="site-title">Tom Macwright</div>
             </a>
-              <div class=site-url> macwright.com </div>
-              <div class=site-description> Cares about the web, also works at val.town.</div>
+            <div class="site-url">macwright.com</div>
+            <div class="site-description">Cares about the web, also works at val.town.</div>
           </div>
 
-          <div class=site style="top: 00%; left: 30%">
+          <div class="site" style="top: 00%; left: 30%">
             <a target="_blank" href="https://rauno.me/" style="color: inherit">
-              <div class=site-title> Rauno Freiberg </div>
+              <div class="site-title">Rauno Freiberg</div>
             </a>
-              <div class=site-url> rauno.me </div>
-              <div class=site-description> Interface prototyper, thinking about knowledge representation and creative tools.</div>
+            <div class="site-url">rauno.me</div>
+            <div class="site-description">
+              Interface prototyper, thinking about knowledge representation and creative tools.
+            </div>
           </div>
 
-          
-
-          <div class=site style="top: 70%; left: 70%">
+          <div class="site" style="top: 70%; left: 70%">
             <a target="_blank" href="https://thesephist.com" style="color: inherit">
-              <div class=site-title> Linus Lee </div>
+              <div class="site-title">Linus Lee</div>
             </a>
-              <div class=site-url> thesephist.com </div>
-              <div class=site-description> Interface prototyper, thinking about knowledge representation and creative tools.</div>
+            <div class="site-url">thesephist.com</div>
+            <div class="site-description">
+              Interface prototyper, thinking about knowledge representation and creative tools.
+            </div>
           </div>
 
-          <div class=site style="top: 50%; left: 5%">
+          <div class="site" style="top: 50%; left: 5%">
             <a target="_blank" href="https://maya.land" style="color: inherit">
-              <div class=site-title> Maya </div>
+              <div class="site-title">Maya</div>
             </a>
-              <div class=site-url> maya.land </div>
-              <div class=site-description> Web crank.</div>
+            <div class="site-url">maya.land</div>
+            <div class="site-description">Web crank.</div>
           </div>
 
-          <div class=site style="top: 10%; left: 70%">
+          <div class="site" style="top: 10%; left: 70%">
             <a target="_blank" href="https://www.spencerchang.me" style="color: inherit">
-              <div class=site-title> Spencer Chang </div>
+              <div class="site-title">Spencer Chang</div>
             </a>
-              <div class=site-url> spencerchang.me </div>
-              <div class=site-description> Wholesome mf.</div>
+            <div class="site-url">spencerchang.me</div>
+            <div class="site-description">Wholesome mf.</div>
           </div>
-
         </section>
 
         <section style="top: -900px; left: 1300px">
-          <div class=section-title>Software Enjoyers</div>
+          <div class="section-title">Software Enjoyers</div>
 
-          <div class=site style="top: 30%; left: 60%">
+          <div class="site" style="top: 30%; left: 60%">
             <a target="_blank" href="https://tyler.cafe/" style="color: inherit">
-              <div class=site-title> Tyler Angert </div>
+              <div class="site-title">Tyler Angert</div>
             </a>
-              <div class=site-url> tyler.cafe </div>
-              <div class=site-description> Guy who softwares.</div>
+            <div class="site-url">tyler.cafe</div>
+            <div class="site-description">Guy who softwares.</div>
           </div>
 
-           <div class=site style="top: 40%; left: 90%">
+          <div class="site" style="top: 40%; left: 90%">
             <a target="_blank" href="https://slim.computer" style="color: inherit">
-              <div class=site-title> Sarah Lim </div>
+              <div class="site-title">Sarah Lim</div>
             </a>
-              <div class=site-url> slim.computer </div>
-              <div class=site-description> She is a computer scientist.</div>
+            <div class="site-url">slim.computer</div>
+            <div class="site-description">She is a computer scientist.</div>
           </div>
 
-          <div class=site style="top: 30%; left: 20%">
+          <div class="site" style="top: 30%; left: 20%">
             <a target="_blank" href="https://alexanderobenauer.com" style="color: inherit">
-              <div class=site-title> Alexander Obenauer </div>
+              <div class="site-title">Alexander Obenauer</div>
             </a>
-              <div class=site-url> alexanderobenauer.com </div>
-              <div class=site-description> Working on a new OS, based on "items".</div>
+            <div class="site-url">alexanderobenauer.com</div>
+            <div class="site-description">Working on a new OS, based on "items".</div>
           </div>
 
-          <div class=site style="top: 38%; left: -20%">
+          <div class="site" style="top: 38%; left: -20%">
             <a target="_blank" href="https://andymatuschak.org/" style="color: inherit">
-              <div class=site-title> Andy Matuschak </div>
+              <div class="site-title">Andy Matuschak</div>
             </a>
-              <div class=site-url> andymatuschak.org </div>
-              <div class=site-description> Interfaces for thinking, tools for memory.</div>
+            <div class="site-url">andymatuschak.org</div>
+            <div class="site-description">Interfaces for thinking, tools for memory.</div>
           </div>
 
-          <div class=site style="top: 0%; left: 30%">
+          <div class="site" style="top: 0%; left: 30%">
             <a target="_blank" href="https://kayserifserif.place" style="color: inherit">
-              <div class=site-title> Katherine Yang </div>
+              <div class="site-title">Katherine Yang</div>
             </a>
-              <div class=site-url> kayserifserif.place </div>
-              <div class=site-description> Guy who softwares.</div>
+            <div class="site-url">kayserifserif.place</div>
+            <div class="site-description">Guy who softwares.</div>
           </div>
 
-          <div class=site style="top: 80%; left: 20%">
+          <div class="site" style="top: 80%; left: 20%">
             <a target="_blank" href="https://geoffreylitt.com" style="color: inherit">
-              <div class=site-title> Geoffrey Litt </div>
+              <div class="site-title">Geoffrey Litt</div>
             </a>
-              <div class=site-url> geoffreylitt.com </div>
-              <div class=site-description> Guy who softwares.</div>
+            <div class="site-url">geoffreylitt.com</div>
+            <div class="site-description">Guy who softwares.</div>
           </div>
 
-          <div class=site style="top: 5%; left: -10%">
+          <div class="site" style="top: 5%; left: -10%">
             <a target="_blank" href="https://worrydream.com" style="color: inherit">
-              <div class=site-title> Bret Victor </div>
+              <div class="site-title">Bret Victor</div>
             </a>
-              <div class=site-url> worrydream.com </div>
-              <div class=site-description> Legendary dynamic media researcher.</div>
+            <div class="site-url">worrydream.com</div>
+            <div class="site-description">Legendary dynamic media researcher.</div>
           </div>
 
-          <div class=site style="top: 60%; left: 50%">
+          <div class="site" style="top: 60%; left: 50%">
             <a target="_blank" href="https://omar.website" style="color: inherit">
-              <div class=site-title> Omar Rizwan </div>
+              <div class="site-title">Omar Rizwan</div>
             </a>
-              <div class=site-url> omar.website </div>
-              <div class=site-description> Computer appreciator and explorer.</div>
+            <div class="site-url">omar.website</div>
+            <div class="site-description">Computer appreciator and explorer.</div>
           </div>
 
-          <div class=site style="top: 90%; left: 0%">
+          <div class="site" style="top: 90%; left: 0%">
             <a target="_blank" href="https://www.todepond.com/" style="color: inherit">
-              <div class=site-title> Todepond </div>
+              <div class="site-title">Todepond</div>
             </a>
-              <div class=site-url> todepond.com </div>
-              <div class=site-description> Make slightly-surreal videos about their coding experiments.</div>
+            <div class="site-url">todepond.com</div>
+            <div class="site-description">Make slightly-surreal videos about their coding experiments.</div>
           </div>
 
-          <div class=site style="top: 60%; left: 10%">
+          <div class="site" style="top: 60%; left: 10%">
             <a target="_blank" href="https://doriantaylor.com" style="color: inherit">
-              <div class=site-title> Dorian Taylor </div>
+              <div class="site-title">Dorian Taylor</div>
             </a>
-              <div class=site-url> doriantaylor.com</div>
-              <div class=site-description> Hmmm. </div>
+            <div class="site-url">doriantaylor.com</div>
+            <div class="site-description">Hmmm.</div>
           </div>
 
-          <div class=site style="top: 120%; left: 10%">
+          <div class="site" style="top: 120%; left: 10%">
             <a target="_blank" href="https://eugenekudashev.com/" style="color: inherit">
-              <div class=site-title> Eugene Kudashev </div>
+              <div class="site-title">Eugene Kudashev</div>
             </a>
-              <div class=site-url> eugenekudashev.com</div>
-              <div class=site-description> Eugene Kudashev (b. 1989, Leningrad, Russia) makes web art, writes serious essays and silly one-liners, and tries to make sense of the ever-present absurdity of today.  </div>
+            <div class="site-url">eugenekudashev.com</div>
+            <div class="site-description">
+              Eugene Kudashev (b. 1989, Leningrad, Russia) makes web art, writes serious essays and silly one-liners,
+              and tries to make sense of the ever-present absurdity of today.
+            </div>
           </div>
 
-          <div class=site style="top: 80%; left: 80%">
+          <div class="site" style="top: 80%; left: 80%">
             <a target="_blank" href="https://morepablo.com" style="color: inherit">
-              <div class=site-title> Pablo Meier </div>
+              <div class="site-title">Pablo Meier</div>
             </a>
-              <div class=site-url> morepablo.com</div>
-              <div class=site-description> computer-ey things, personal things.  </div>
+            <div class="site-url">morepablo.com</div>
+            <div class="site-description">computer-ey things, personal things.</div>
           </div>
 
-          <div class=site style="top: 90%; left: 50%">
+          <div class="site" style="top: 90%; left: 50%">
             <a target="_blank" href="https://a9.io/" style="color: inherit">
-              <div class=site-title> Max Krieger </div>
+              <div class="site-title">Max Krieger</div>
             </a>
-              <div class=site-url> a9.io</div>
-              <div class=site-description> Interaction design and implementation.  </div>
+            <div class="site-url">a9.io</div>
+            <div class="site-description">Interaction design and implementation.</div>
           </div>
 
-          <div class=site style="top: 57%; left: 80%">
+          <div class="site" style="top: 57%; left: 80%">
             <a target="_blank" href="http://tom7.org/" style="color: inherit">
-              <div class=site-title> Tom Murphy VII </div>
+              <div class="site-title">Tom Murphy VII</div>
             </a>
-              <div class=site-url> tom7.org</div>
-              <div class=site-description> Programming language + font nerd with the coolest <a href="https://www.youtube.com/@tom7">Youtube channel</a>.  </div>
+            <div class="site-url">tom7.org</div>
+            <div class="site-description">
+              Programming language + font nerd with the coolest
+              <a href="https://www.youtube.com/@tom7">Youtube channel</a>.
+            </div>
           </div>
-
         </section>
 
         <section style="top: -1300px; left: -100px">
-          <div class=section-title>Collectives</div>
+          <div class="section-title">Collectives</div>
 
-          <div class=site style="top: 10%; left: 20%">
+          <div class="site" style="top: 10%; left: 20%">
             <a target="_blank" href="https://www.inkandswitch.com/" style="color: inherit">
-              <div class=site-title> Ink & Switch </div>
+              <div class="site-title">Ink & Switch</div>
             </a>
-              <div class=site-url> inkandswitch.com </div>
-              <div class=site-description> Elegant details, tasteful interactions, minimalism enjoyer.</div>
+            <div class="site-url">inkandswitch.com</div>
+            <div class="site-description">Elegant details, tasteful interactions, minimalism enjoyer.</div>
           </div>
 
-          <div class=site style="top: 30%; left: 80%">
+          <div class="site" style="top: 30%; left: 80%">
             <a target="_blank" href="https://www.metalabel.com/" style="color: inherit">
-              <div class=site-title> Metalabel </div>
+              <div class="site-title">Metalabel</div>
             </a>
-              <div class=site-url> metalabel.com </div>
-              <div class=site-description> Serial releasers of...stuff. Like the <a target="_blank" href="https://www.collaborationcookbook.com/">Collaboration Cookbook</a>.</div>
+            <div class="site-url">metalabel.com</div>
+            <div class="site-description">
+              Serial releasers of...stuff. Like the
+              <a target="_blank" href="https://www.collaborationcookbook.com/">Collaboration Cookbook</a>.
+            </div>
           </div>
 
-          <div class=site style="top: 70%; left: 20%">
+          <div class="site" style="top: 70%; left: 20%">
             <a target="_blank" href="https://100r.co" style="color: inherit">
-              <div class=site-title> 100 Rabbits </div>
+              <div class="site-title">100 Rabbits</div>
             </a>
-              <div class=site-url> 100r.co </div>
-              <div class=site-description> Elegant details, tasteful interactions, minimalism enjoyer.</div>
+            <div class="site-url">100r.co</div>
+            <div class="site-description">Elegant details, tasteful interactions, minimalism enjoyer.</div>
           </div>
 
-          <div class=site style="top: 50%; left: -10%">
+          <div class="site" style="top: 50%; left: -10%">
             <a target="_blank" href="https://goodenough.us" style="color: inherit">
-              <div class=site-title> Good Enough </div>
+              <div class="site-title">Good Enough</div>
             </a>
-              <div class=site-url> goodenough.us </div>
-              <div class=site-description> Elegant details, tasteful interactions, minimalism enjoyer.</div>
+            <div class="site-url">goodenough.us</div>
+            <div class="site-description">Elegant details, tasteful interactions, minimalism enjoyer.</div>
           </div>
-
         </section>
-
-
 
         <section style="top: 500px; left: -600px">
-          <div class=section-title>Tech Bros</div>
+          <div class="section-title">Tech Bros</div>
 
-          <div class=site style="top: 10%; left: 10%">
+          <div class="site" style="top: 10%; left: 10%">
             <a target="_blank" href="http://www.aaronsw.com" style="color: inherit">
-              <div class=site-title> Aaron Swartz</div>
+              <div class="site-title">Aaron Swartz</div>
             </a>
-              <div class=site-url> www.aaronsw.com</div>
-              <div class=site-description> RIP. </div>
+            <div class="site-url">www.aaronsw.com</div>
+            <div class="site-description">RIP.</div>
           </div>
 
-          <div class=site style="top: 30%; left: -20%">
+          <div class="site" style="top: 30%; left: -20%">
             <a target="_blank" href="https://kwokchain.com" style="color: inherit">
-              <div class=site-title> Kwokchain</div>
+              <div class="site-title">Kwokchain</div>
             </a>
-              <div class=site-url> kwokchain.com</div>
-              <div class=site-description> Things that shape industries, often tech. </div>
+            <div class="site-url">kwokchain.com</div>
+            <div class="site-description">Things that shape industries, often tech.</div>
           </div>
 
-          <div class=site style="top: 10%; left: 50%">
+          <div class="site" style="top: 10%; left: 50%">
             <a target="_blank" href="https://guzey.com" style="color: inherit">
-              <div class=site-title> Alexey Guzey </div>
+              <div class="site-title">Alexey Guzey</div>
             </a>
-              <div class=site-url> guzey.com </div>
-              <div class=site-description> Terrible epistemics, lots of enthusiasm and opinions. </div>
+            <div class="site-url">guzey.com</div>
+            <div class="site-description">Terrible epistemics, lots of enthusiasm and opinions.</div>
           </div>
 
-          <div class=site style="top: 25%; left: 30%">
+          <div class="site" style="top: 25%; left: 30%">
             <a target="_blank" href="https://nickarner.com" style="color: inherit">
-              <div class=site-title> Nick Arner </div>
+              <div class="site-title">Nick Arner</div>
             </a>
-              <div class=site-url> nickarner.com </div>
-              <div class=site-description> Cool computer guy (I helped make his site). Ex-bass player, impressive angel investor. </div>
+            <div class="site-url">nickarner.com</div>
+            <div class="site-description">
+              Cool computer guy (I helped make his site). Ex-bass player, impressive angel investor.
+            </div>
           </div>
 
-           <div class=site style="top: 65%; left: 50%">
+          <div class="site" style="top: 65%; left: 50%">
             <a target="_blank" href="https://robertheaton.com" style="color: inherit">
-              <div class=site-title> Robert Heaton </div>
+              <div class="site-title">Robert Heaton</div>
             </a>
-              <div class=site-url> robertheaton.com </div>
-              <div class=site-description> Dad who can write, guy who can program. </div>
+            <div class="site-url">robertheaton.com</div>
+            <div class="site-description">Dad who can write, guy who can program.</div>
           </div>
 
-          <div class=site style="top: 50%; left: -5%">
+          <div class="site" style="top: 50%; left: -5%">
             <a target="_blank" href="https://kalzumeus.com" style="color: inherit">
-              <div class=site-title> Patrick McKenzie </div>
+              <div class="site-title">Patrick McKenzie</div>
             </a>
-              <div class=site-url>kalzumeus.com </div>
-              <div class=site-description> On money and systems thereof, programmer self-harm prevention. </div>
+            <div class="site-url">kalzumeus.com</div>
+            <div class="site-description">On money and systems thereof, programmer self-harm prevention.</div>
           </div>
 
-          <div class=site style="top: 70%; left: 15">
+          <div class="site" style="top: 70%; left: 15">
             <a target="_blank" href="https://stratchery.com" style="color: inherit">
-              <div class=site-title> Stratchery </div>
+              <div class="site-title">Stratchery</div>
             </a>
-              <div class=site-url>stratchery.com </div>
-              <div class=site-description> On the business, strategy, and impact of technology. </div>
+            <div class="site-url">stratchery.com</div>
+            <div class="site-description">On the business, strategy, and impact of technology.</div>
           </div>
 
-          <div class=site style="top: 80%; left: 30%">
+          <div class="site" style="top: 80%; left: 30%">
             <a target="_blank" href="https://danluu.com" style="color: inherit">
-              <div class=site-title> Dan Luu </div>
+              <div class="site-title">Dan Luu</div>
             </a>
-              <div class=site-url>danluu.com </div>
-              <div class=site-description> He just writes and thinks pretty well tbh. </div>
+            <div class="site-url">danluu.com</div>
+            <div class="site-description">He just writes and thinks pretty well tbh.</div>
           </div>
 
-          <div class=site style="top: 100%; left: 40%">
-            <a target="_blank" href="https://gwern.net" style="color: inherit;">
-              <div class=site-title>Gwern</div>
+          <div class="site" style="top: 100%; left: 40%">
+            <a target="_blank" href="https://gwern.net" style="color: inherit">
+              <div class="site-title">Gwern</div>
             </a>
-              <div class=site-url>gwern.net </div>
-              <div class=site-description> Internet besserwisser. </div>
+            <div class="site-url">gwern.net</div>
+            <div class="site-description">Internet besserwisser.</div>
           </div>
 
-          <div class=site style="top: 20%; left: 80%">
-            <a target="_blank" href="https://benkuhn.net" style="color: inherit;">
-              <div class=site-title>Ben Kuhn</div>
+          <div class="site" style="top: 20%; left: 80%">
+            <a target="_blank" href="https://benkuhn.net" style="color: inherit">
+              <div class="site-title">Ben Kuhn</div>
             </a>
-              <div class=site-url>benkuhn.net </div>
-              <div class=site-description> Guy. </div>
+            <div class="site-url">benkuhn.net</div>
+            <div class="site-description">Guy.</div>
           </div>
 
-          <div class=site style="top: 80%; left: 80%">
-            <a target="_blank" href="https://gordonbrander.com" style="color: inherit;">
-              <div class=site-title>Gordon Brander</div>
+          <div class="site" style="top: 80%; left: 80%">
+            <a target="_blank" href="https://gordonbrander.com" style="color: inherit">
+              <div class="site-title">Gordon Brander</div>
             </a>
-              <div class=site-url>gordonbrander.com </div>
-              <div class=site-description> Software philosophy-isms, working on <a target="_blank" href="https://subconscious.network/">Subconscious</a>. </div>
+            <div class="site-url">gordonbrander.com</div>
+            <div class="site-description">
+              Software philosophy-isms, working on
+              <a target="_blank" href="https://subconscious.network/">Subconscious</a>.
+            </div>
           </div>
 
-          <div class=site style="top: 50%; left: 70%">
-            <a target="_blank" href="https://evanmiller.org" style="color: inherit;">
-              <div class=site-title>Evan Miller</div>
+          <div class="site" style="top: 50%; left: 70%">
+            <a target="_blank" href="https://evanmiller.org" style="color: inherit">
+              <div class="site-title">Evan Miller</div>
             </a>
-              <div class=site-url>evanmiller.org </div>
-              <div class=site-description> Statistics, math opinions, hacker. </div>
+            <div class="site-url">evanmiller.org</div>
+            <div class="site-description">Statistics, math opinions, hacker.</div>
           </div>
-          
         </section>
 
-
-
         <section style="top: 1200px; left: -100px">
-          <div class=section-title>Substack club</div>
+          <div class="section-title">Substack club</div>
 
-          <div class=site style="top: 20%; left: 60%">
+          <div class="site" style="top: 20%; left: 60%">
             <a target="_blank" href="https://experimentalhistory.substack.com" style="color: inherit">
-              <div class=site-title> Experimental History</div>
+              <div class="site-title">Experimental History</div>
             </a>
-              <div class=site-url> experimentalhistory.substack.com </div>
-              <div class=site-description> Guy who does psychology fairly well. </div>
+            <div class="site-url">experimentalhistory.substack.com</div>
+            <div class="site-description">Guy who does psychology fairly well.</div>
           </div>
 
-          <div class=site style="top: 40%; left: 100%">
+          <div class="site" style="top: 40%; left: 100%">
             <a target="_blank" href="https://bitsofwonder.substack.com" style="color: inherit">
-              <div class=site-title> Bits of Wonder </div>
+              <div class="site-title">Bits of Wonder</div>
             </a>
-              <div class=site-url> honest-broker.com </div>
-              <div class=site-description> feeling things and talking about them, sometimes simultaneously. </div>
+            <div class="site-url">honest-broker.com</div>
+            <div class="site-description">feeling things and talking about them, sometimes simultaneously.</div>
           </div>
 
-          <div class=site style="top: 70%; left: 10%">
+          <div class="site" style="top: 70%; left: 10%">
             <a target="_blank" href="https://www.honest-broker.com/" style="color: inherit">
-              <div class=site-title> The Honest Broker </div>
+              <div class="site-title">The Honest Broker</div>
             </a>
-              <div class=site-url> honest-broker.com </div>
-              <div class=site-description> A trustworthy guide to music, books, arts, media & culture by Ted Gioia. </div>
+            <div class="site-url">honest-broker.com</div>
+            <div class="site-description">A trustworthy guide to music, books, arts, media & culture by Ted Gioia.</div>
           </div>
 
-          <div class=site style="top: 30%; left: 0%">
+          <div class="site" style="top: 30%; left: 0%">
             <a target="_blank" href="https://www.strangeloopcanon.com/" style="color: inherit">
-              <div class=site-title> Strange Loop Canon</div>
+              <div class="site-title">Strange Loop Canon</div>
             </a>
-              <div class=site-url> strangeloopcanon.com </div>
-              <div class=site-description> Rohit writes well, thinks better. </div>
+            <div class="site-url">strangeloopcanon.com</div>
+            <div class="site-description">Rohit writes well, thinks better.</div>
           </div>
 
-          <div class=site style="top: 60%; left: 50%">
+          <div class="site" style="top: 60%; left: 50%">
             <a target="_blank" href="https://www.theintrinsicperspective.com/" style="color: inherit">
-              <div class=site-title> The Intrinsic Perspective</div>
+              <div class="site-title">The Intrinsic Perspective</div>
             </a>
-              <div class=site-url> theintrinsicperspective.com </div>
-              <div class=site-description> Science and humanities fan. Neuroscience + novelist. </div>
+            <div class="site-url">theintrinsicperspective.com</div>
+            <div class="site-description">Science and humanities fan. Neuroscience + novelist.</div>
           </div>
-
         </section>
 
         <section style="top: 1200px; left: -900px">
-          <div class=section-title>Effective Epistemics (???)</div>
+          <div class="section-title">Effective Epistemics (???)</div>
 
-
-          <div class=site style="top: 30%; left: 50%">
+          <div class="site" style="top: 30%; left: 50%">
             <a target="_blank" href="http://drmaciver.com/" style="color: inherit">
-              <div class=site-title> David Maciver </div>
+              <div class="site-title">David Maciver</div>
             </a>
-              <div class=site-url> drmaciver.com </div>
-              <div class=site-description> Careful thinking, sharp writing. </div>
+            <div class="site-url">drmaciver.com</div>
+            <div class="site-description">Careful thinking, sharp writing.</div>
           </div>
 
-          <div class=site style="top: 0%; left: 90%">
+          <div class="site" style="top: 0%; left: 90%">
             <a target="_blank" href="https://danwang.co/" style="color: inherit">
-              <div class=site-title> Dan Wang </div>
+              <div class="site-title">Dan Wang</div>
             </a>
-              <div class=site-url> danwang.co </div>
-              <div class=site-description> Excellent, excellent writer. Semiconductors and East Asia. </div>
+            <div class="site-url">danwang.co</div>
+            <div class="site-description">Excellent, excellent writer. Semiconductors and East Asia.</div>
           </div>
 
-          <div class=site style="top: 0%; left: 50%">
+          <div class="site" style="top: 0%; left: 50%">
             <a target="_blank" href="https://nintil.com" style="color: inherit">
-              <div class=site-title> Nintil </div>
+              <div class="site-title">Nintil</div>
             </a>
-              <div class=site-url> nintil.com </div>
-              <div class=site-description> Science, bio these days. </div>
+            <div class="site-url">nintil.com</div>
+            <div class="site-description">Science, bio these days.</div>
           </div>
 
-          <div class=site style="top: 10%; left: 20%">
+          <div class="site" style="top: 10%; left: 20%">
             <a target="_blank" href="https://commoncog.com" style="color: inherit">
-              <div class=site-title> Cedric Chin </div>
+              <div class="site-title">Cedric Chin</div>
             </a>
-              <div class=site-url> commoncog.com </div>
-              <div class=site-description> Operations, the study of expertise. </div>
+            <div class="site-url">commoncog.com</div>
+            <div class="site-description">Operations, the study of expertise.</div>
           </div>
 
-          <div class=site style="top: 60%; left: 120%">
+          <div class="site" style="top: 60%; left: 120%">
             <a target="_blank" href="https://www.samstack.io" style="color: inherit">
-              <div class=site-title> Samstack </div>
+              <div class="site-title">Samstack</div>
             </a>
-              <div class=site-url> samstack.io </div>
-              <div class=site-description> social science, the future, and why people behave in the way that they do. </div>
+            <div class="site-url">samstack.io</div>
+            <div class="site-description">
+              social science, the future, and why people behave in the way that they do.
+            </div>
           </div>
-
         </section>
 
         <section style="top: 800px; left: 900px">
-          <div class=section-title>Slightly Insane</div>
+          <div class="section-title">Slightly Insane</div>
 
-          <div class=site style="top: 35%; left: -20%">
+          <div class="site" style="top: 35%; left: -20%">
             <a target="_blank" href="https://www.secretorum.life" style="color: inherit">
-              <div class=site-title> Roger's Bacon </div>
+              <div class="site-title">Roger's Bacon</div>
             </a>
-              <div class=site-url> secretorum.life </div>
-              <div class=site-description> Heretic, sometimes. </div>
+            <div class="site-url">secretorum.life</div>
+            <div class="site-description">Heretic, sometimes.</div>
           </div>
 
-          <div class=site style="top: 30%; left: 40%">
+          <div class="site" style="top: 30%; left: 40%">
             <a target="_blank" href="https://samkriss.substack.com" style="color: inherit">
-              <div class=site-title> Numb at the Lodge </div>
+              <div class="site-title">Numb at the Lodge</div>
             </a>
-              <div class=site-url> samkriss.substack.com </div>
-              <div class=site-description> A writer and your enemy. </div>
+            <div class="site-url">samkriss.substack.com</div>
+            <div class="site-description">A writer and your enemy.</div>
           </div>
 
-          <div class=site style="top: 50%; left: -20%">
+          <div class="site" style="top: 50%; left: -20%">
             <a target="_blank" href="https://samzdat.com" style="color: inherit">
-              <div class=site-title> sam[ ]zdat </div>
+              <div class="site-title">sam[ ]zdat</div>
             </a>
-              <div class=site-url> samzdat.com </div>
-              <div class=site-description> The reader is expected to quarrel with much that is said… </div>
+            <div class="site-url">samzdat.com</div>
+            <div class="site-description">The reader is expected to quarrel with much that is said…</div>
           </div>
 
-          <div class=site style="top: 70%; left: 0%">
+          <div class="site" style="top: 70%; left: 0%">
             <a target="_blank" href="https://eggreport.substack.com/" style="color: inherit">
-              <div class=site-title> Egg Report</div>
+              <div class="site-title">Egg Report</div>
             </a>
-              <div class=site-url> eggreport.substack.com</div>
-              <div class=site-description> The reader is expected to quarrel with much that is said… </div>
+            <div class="site-url">eggreport.substack.com</div>
+            <div class="site-description">The reader is expected to quarrel with much that is said…</div>
           </div>
 
-          <div class=site style="top: 60%; left: 60%">
+          <div class="site" style="top: 60%; left: 60%">
             <a target="_blank" href="https://mythicalstrength.blogspot.com" style="color: inherit">
-              <div class=site-title> MYTHICAL STRENGTH </div>
+              <div class="site-title">MYTHICAL STRENGTH</div>
             </a>
-              <div class=site-url> mythicalstrength.blogspot.com </div>
-              <div class=site-description> Powerlifter who writes screeds. </div>
+            <div class="site-url">mythicalstrength.blogspot.com</div>
+            <div class="site-description">Powerlifter who writes screeds.</div>
           </div>
 
-          <div class=site style="top: 20%; left: -10%">
+          <div class="site" style="top: 20%; left: -10%">
             <a target="_blank" href="https://zerohplovecraft.substack.com" style="color: inherit">
-              <div class=site-title> Zero HP Lovecraft </div>
+              <div class="site-title">Zero HP Lovecraft</div>
             </a>
-              <div class=site-url> zerohplovecraft.substack.com </div>
-              <div class=site-description> Imperfect (racist) writer of dystopian sci-fi. </div>
+            <div class="site-url">zerohplovecraft.substack.com</div>
+            <div class="site-description">Imperfect (racist) writer of dystopian sci-fi.</div>
           </div>
-          
-          
         </section>
 
         <section style="top: 1800px; left: -600px">
-          <div class=section-title>Lesswrong mafia</div>
+          <div class="section-title">Lesswrong mafia</div>
 
-          <div class=site style="top: -10%; left: 50%">
+          <div class="site" style="top: -10%; left: 50%">
             <a target="_blank" href="https://astralcodexten.substack.com/" style="color: inherit">
-              <div class=site-title> Scott Alexander </div>
+              <div class="site-title">Scott Alexander</div>
             </a>
-              <div class=site-url> astralcodexten.substack.com </div>
-              <div class=site-description> Writes essays, some say too many. </div>
+            <div class="site-url">astralcodexten.substack.com</div>
+            <div class="site-description">Writes essays, some say too many.</div>
           </div>
 
-          <div class=site style="top: 100%; left: 40%">
-            <a target="_blank" href="https://thezvi.wordpress.com" style="color: inherit;">
-              <div class=site-title>Don't Worry About the Vase</div>
+          <div class="site" style="top: 100%; left: 40%">
+            <a target="_blank" href="https://thezvi.wordpress.com" style="color: inherit">
+              <div class="site-title">Don't Worry About the Vase</div>
             </a>
-              <div class=site-url>thezvi.wordpress.com</div>
-              <div class=site-description> Written by <a target="_blank" href="https://twitter.com/TheZvi">Zvi</a>, a game theory and incentives hobbyist. </div>
+            <div class="site-url">thezvi.wordpress.com</div>
+            <div class="site-description">
+              Written by <a target="_blank" href="https://twitter.com/TheZvi">Zvi</a>, a game theory and incentives
+              hobbyist.
+            </div>
           </div>
 
-          <div class=site style="top: 70%; left: 40%">
+          <div class="site" style="top: 70%; left: 40%">
             <a target="_blank" href="http://niplav.github.io/" style="color: inherit">
-              <div class=site-title> niplav </div>
+              <div class="site-title">niplav</div>
             </a>
-              <div class=site-url> niplav.github.io </div>
-              <div class=site-description> Hmmm. </div>
+            <div class="site-url">niplav.github.io</div>
+            <div class="site-description">Hmmm.</div>
           </div>
 
-          <div class=site style="top: 40%; left: 120%">
+          <div class="site" style="top: 40%; left: 120%">
             <a target="_blank" href="https://putanumonit.com" style="color: inherit">
-              <div class=site-title> Putanumonit </div>
+              <div class="site-title">Putanumonit</div>
             </a>
-              <div class=site-url> putanumonit.com </div>
-              <div class=site-description> Psychology, statistics, sex, rationality. </div>
+            <div class="site-url">putanumonit.com</div>
+            <div class="site-description">Psychology, statistics, sex, rationality.</div>
           </div>
 
-          <div class=site style="top: 20%; left: -20%">
+          <div class="site" style="top: 20%; left: -20%">
             <a target="_blank" href="https://meltingasphalt.com" style="color: inherit">
-              <div class=site-title> Melting Asphalt </div>
+              <div class="site-title">Melting Asphalt</div>
             </a>
-              <div class=site-url> meltingasphalt.com </div>
-              <div class=site-description> Psych-something, socio-something, econ-something. </div>
+            <div class="site-url">meltingasphalt.com</div>
+            <div class="site-description">Psych-something, socio-something, econ-something.</div>
           </div>
 
-          <div class=site style="top: 20%; left: 60%">
+          <div class="site" style="top: 20%; left: 60%">
             <a target="_blank" href="https://www.applieddivinitystudies.com/" style="color: inherit">
-              <div class=site-title> Applied Divinity Studies </div>
+              <div class="site-title">Applied Divinity Studies</div>
             </a>
-              <div class=site-url> applieddivinitystudies.com </div>
-              <div class=site-description> Data for qualitative questions, economic lenses, opinionated claims. </div>
+            <div class="site-url">applieddivinitystudies.com</div>
+            <div class="site-description">Data for qualitative questions, economic lenses, opinionated claims.</div>
           </div>
 
-          <div class=site style="top: 10%; left: 20%">
+          <div class="site" style="top: 10%; left: 20%">
             <a target="_blank" href="https://www.gleech.org/" style="color: inherit">
-              <div class=site-title> Argmin Gravitas </div>
+              <div class="site-title">Argmin Gravitas</div>
             </a>
-              <div class=site-url> gleech.org </div>
-              <div class=site-description> He can think, and read. </div>
+            <div class="site-url">gleech.org</div>
+            <div class="site-description">He can think, and read.</div>
           </div>
         </section>
-
-
 
         <section style="top: 1300px; left: 700px">
-          <div class=section-title>Do drugs and/or philosophy and/or be happy</div>
+          <div class="section-title">Do drugs and/or philosophy and/or be happy</div>
 
-          <div class=site style="top: -5%; left: 60%">
+          <div class="site" style="top: -5%; left: 60%">
             <a target="_blank" href="https://qualiacomputing.com" style="color: inherit">
-              <div class=site-title> Qualia Computing </div>
+              <div class="site-title">Qualia Computing</div>
             </a>
-              <div class=site-url> qualiacomputing.com </div>
-              <div class=site-description> Qualia, and computers. </div>
+            <div class="site-url">qualiacomputing.com</div>
+            <div class="site-description">Qualia, and computers.</div>
           </div>
 
-          <div class=site style="top: 20%; left: 20%">
+          <div class="site" style="top: 20%; left: 20%">
             <a target="_blank" href="https://sashachapin.substack.com" style="color: inherit">
-              <div class=site-title> Sasha Chapin </div>
+              <div class="site-title">Sasha Chapin</div>
             </a>
-              <div class=site-url> sashachapin.substack.com </div>
-              <div class=site-description> Compulsive over-sharer. </div>
+            <div class="site-url">sashachapin.substack.com</div>
+            <div class="site-description">Compulsive over-sharer.</div>
           </div>
 
-          <div class=site style="top: 90%; left: -10%">
+          <div class="site" style="top: 90%; left: -10%">
             <a target="_blank" href="https://meaningness.com/" style="color: inherit">
-              <div class=site-title> Meaningness </div>
+              <div class="site-title">Meaningness</div>
             </a>
-              <div class=site-url> meaningness.com/ </div>
-              <div class=site-description> By David Chapman, a living book about systems of meaning. Buddhism too? </div>
+            <div class="site-url">meaningness.com/</div>
+            <div class="site-description">By David Chapman, a living book about systems of meaning. Buddhism too?</div>
           </div>
         </section>
-
       </div>
     </main>
 
-    <div class=info>
-      <button class=info-button onclick="toggleInfo()">?</button>
+    <div class="info">
+      <button class="info-button" onclick="toggleInfo()">?</button>
       <div class="info-text">
-        <p> A <a target="_blank" href="https://nihalsahu.net/">friend</a> said to me, "your detailed <a href="https://hypertext.joodaloop.com"> list</a> of favourite bloggers is very nice, but where's the list of every single website/web person you like?"</p>
-        <p> This map is an attempt at answering that question.</p>
-        <p> <b>Map size: </b> <span id=site-count>121</span> sites, <span id=section-count>20</span> sections. </p>
-        <p> Someday I will make this look prettier, for now it is merely functional. </p>
-        <p> Copyright and stuff belongs to <a href="https://joodaloop.com">Judah</a>. </p>
+        <p>
+          A <a target="_blank" href="https://nihalsahu.net/">friend</a> said to me, "your detailed
+          <a href="https://hypertext.joodaloop.com"> list</a> of favourite bloggers is very nice, but where's the list
+          of every single website/web person you like?"
+        </p>
+        <p>This map is an attempt at answering that question.</p>
+        <p><b>Map size: </b> <span id="site-count">121</span> sites, <span id="section-count">20</span> sections.</p>
+        <p>Someday I will make this look prettier, for now it is merely functional.</p>
+        <p>Copyright and stuff belongs to <a href="https://joodaloop.com">Judah</a>.</p>
       </div>
     </div>
 
     <script>
-      var element = document.querySelector('.map')
-      let infoVisible = false
+      var element = document.querySelector(".map");
+      let infoVisible = false;
       const root = document.documentElement;
 
       // And pass it to panzoom
       let pz = panzoom(element, {
-                    minZoom: 0.3, maxZoom: 1.35, 
-                    beforeWheel: function(e) {
-                      var shouldIgnore = !(e.ctrlKey || e.metaKey || e.altKey)
-                      return shouldIgnore;
-                    },
-                    onTouch: function(e) {
-                      if(e.target.classList.contains('site-title')) return false
-                      else return true; // tells the library to not preventDefault.
-                    }
-                })
+        minZoom: 0.3,
+        maxZoom: 1.35,
 
-      pz.smoothZoom(500, 500, 0.3)
-
-      document.getElementById('site-count').innerText = document.querySelectorAll('.site').length
-      document.getElementById('section-count').innerText = document.querySelectorAll('section').length
-
-      pz.on('zoom', () => {
-        let scale = pz.getTransform().scale
-        root.style.setProperty('--title-size', (scale < 0.4 ? 1.05/scale : 2.7) * 12 + 'px') 
-      })
-
-      function toggleInfo(){
-          let text = document.querySelector('.info-text')
-          infoVisible ? text.style.display = "none" : text.style.display = "inline-block"
-          infoVisible = !infoVisible
-       }
-
-      document.querySelector('main').addEventListener("wheel", (e) => {
-
-          if(e.ctrlKey || e.metaKey || e.altKey){
-              return false
-          } 
-
-          // if(e.target == "main"){
-              e.preventDefault()
-          // }
-
-          let transform = pz.getTransform()
-          let scale = transform.scale
-          let x = transform.x
-          let y = transform.y
-
-          let deltaX = e.deltaX;
-          let deltaY = e.deltaY;
-
-          if(e.shiftKey) deltaX = 0
-
-          pz.moveTo(x - deltaX, y - deltaY);
+        beforeWheel(e) {
+          // Ignore Option+wheel so our custom pan handler can use it.
+          // Everything else, including normal wheel and pinch-like wheel,
+          // is handled by panzoom as zoom.
+          return e.altKey;
+        },
+        onTouch: function (e) {
+          if (e.target.classList.contains("site-title")) return false;
+          else return true; // tells the library to not preventDefault.
+        },
       });
 
-</script>
-      
-    </body></html>
+      pz.smoothZoom(500, 500, 0.3);
+
+      document.getElementById("site-count").innerText = document.querySelectorAll(".site").length;
+      document.getElementById("section-count").innerText = document.querySelectorAll("section").length;
+
+      pz.on("zoom", () => {
+        let scale = pz.getTransform().scale;
+        root.style.setProperty("--title-size", (scale < 0.4 ? 1.05 / scale : 2.7) * 12 + "px");
+      });
+
+      function toggleInfo() {
+        let text = document.querySelector(".info-text");
+        infoVisible ? (text.style.display = "none") : (text.style.display = "inline-block");
+        infoVisible = !infoVisible;
+      }
+
+      document.querySelector("main").addEventListener(
+        "wheel",
+        (e) => {
+          // Only Option+scroll should pan.
+          // If it's not Option, let panzoom handle zoom.
+          if (!e.altKey) return;
+
+          // If you want pinch to always stay zoom even when weird modifier combos appear:
+          if (e.ctrlKey) return;
+
+          e.preventDefault();
+
+          const { x, y } = pz.getTransform();
+          pz.moveTo(x - e.deltaX, y - e.deltaY);
+        },
+        { passive: false },
+      );
+    </script>
+  </body>
+</html>
