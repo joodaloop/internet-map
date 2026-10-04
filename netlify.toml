@@ -1,5 +1,5 @@
 
 [[redirects]]
   from = "/_v/*"
-  to = "https://vigil.d4js2468.workers.dev/_v/:splat"
+  to = "https://vigil.intpub.workers.dev/_v/:splat"
   status = 200
